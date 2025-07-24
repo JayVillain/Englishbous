@@ -27,7 +27,7 @@
     --feedback-error-text: #A94442;     /* Teks merah error yang cukup gelap untuk kontras */
 
     /* Properti Umum (dengan penyesuaian untuk kesan 'smooth' dan 'nyaman') */
-    --border-radius-large: 16px;        /* Sudut membulat standar, lebih besar untuk kelembutan */
+    --border-radius-large: 16px;        /* Sudut membulat standar, lebih besar untuk kesan lembut */
     --shadow-subtle: 0 8px 30px rgba(0, 0, 0, 0.05); /* Bayangan yang sangat menyebar dan pudar */
     --shadow-elevate: 0 12px 40px rgba(0, 0, 0, 0.08); /* Bayangan saat hover, lebih menonjol tapi tetap lembut */
     --transition-duration-slow: 0.5s;   /* Durasi transisi lebih panjang untuk efek 'smooth' yang lebih terasa */
@@ -51,27 +51,27 @@
 /* --- BASE STYLES (Gaya Dasar untuk Seluruh Halaman) --- */
 body {
     font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.8; /* Ketinggian baris lebih longgar untuk keterbacaan yang maksimal */
+    line-height: 1.8;
     color: var(--text-body);
     background-color: var(--bg-main);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Mencegah scroll horizontal */
+    overflow-x: hidden;
 }
 
 /* CONTAINER: Kelas utilitas untuk membatasi lebar konten. */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-l); /* Padding samping menggunakan variabel spacing L */
+    padding: 0 var(--spacing-l);
 }
 
 /* --- HEADER (Bagian Atas Situs) --- */
 .main-header {
     background-color: var(--color-primary-calm);
     color: #fff;
-    padding: var(--spacing-m) 0; /* Padding vertikal menggunakan variabel spacing M */
+    padding: var(--spacing-m) 0;
     box-shadow: var(--shadow-subtle);
     position: sticky;
     top: 0;
@@ -89,7 +89,7 @@ body {
 
 /* --- NAVIGATION (Navigasi Utama) --- */
 .main-nav {
-    margin-top: var(--spacing-m); /* Jarak dari judul situs menggunakan variabel spacing M */
+    margin-top: var(--spacing-m);
     text-align: center;
 }
 
@@ -102,7 +102,7 @@ body {
 }
 
 .nav-item {
-    margin: 0 var(--spacing-m); /* Jarak antar item navigasi menggunakan variabel spacing M */
+    margin: 0 var(--spacing-m);
 }
 
 .nav-link {
@@ -110,7 +110,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 1.25em;
-    padding: var(--spacing-xs) 0; /* Padding lebih kecil untuk link agar underline pas */
+    padding: var(--spacing-s) 0;
     position: relative;
     transition: color var(--transition-duration-slow) var(--transition-timing-ease);
 }
@@ -138,12 +138,12 @@ body {
 /* --- MAIN CONTENT (Konten Utama) --- */
 .main-content {
     flex-grow: 1;
-    padding: var(--spacing-xl) 0; /* Padding vertikal menggunakan variabel spacing XL */
+    padding: var(--spacing-xl) 0;
     animation: fadeIn var(--transition-duration-slow) var(--transition-timing-ease);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(var(--spacing-l)); } /* Menggunakan variabel spacing L */
+    from { opacity: 0; transform: translateY(var(--spacing-l)); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -151,9 +151,9 @@ body {
     font-size: 3em;
     color: var(--text-header);
     text-align: center;
-    margin-bottom: var(--spacing-l); /* Jarak bawah menggunakan variabel spacing L */
+    margin-bottom: var(--spacing-l);
     position: relative;
-    padding-bottom: var(--spacing-s); /* Padding bawah menggunakan variabel spacing S */
+    padding-bottom: var(--spacing-s);
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -174,14 +174,14 @@ body {
     font-size: 1.25em;
     text-align: center;
     max-width: 950px;
-    margin: 0 auto var(--spacing-l) auto; /* Margin bawah menggunakan variabel spacing L */
+    margin: 0 auto var(--spacing-l) auto;
     color: var(--text-body);
 }
 
 /* --- BUTTONS (Tombol) --- */
 .btn {
     display: inline-block;
-    padding: var(--spacing-s) var(--spacing-l); /* Padding tombol menggunakan variabel spacing */
+    padding: var(--spacing-s) var(--spacing-l);
     border-radius: var(--border-radius-large);
     text-decoration: none;
     font-weight: 600;
@@ -195,7 +195,7 @@ body {
 .btn-primary {
     background-color: var(--color-accent-fresh);
     color: #fff;
-    margin-top: var(--spacing-m); /* Jarak atas menggunakan variabel spacing M */
+    margin-top: var(--spacing-m);
     display: block;
     width: fit-content;
     margin-left: auto;
@@ -223,15 +223,15 @@ body {
 .level-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-l); /* Jarak antar kartu menggunakan variabel spacing L */
-    margin-top: var(--spacing-xl); /* Jarak atas menggunakan variabel spacing XL */
+    gap: var(--spacing-l);
+    margin-top: var(--spacing-xl);
 }
 
 .level-card {
     background-color: var(--bg-card);
     border-radius: var(--border-radius-large);
     box-shadow: var(--shadow-subtle);
-    padding: var(--spacing-l); /* Padding kartu menggunakan variabel spacing L */
+    padding: var(--spacing-l);
     text-align: center;
     transition: all var(--transition-duration-slow) var(--transition-timing-ease);
     display: flex;
@@ -248,14 +248,14 @@ body {
 .level-card-title {
     font-size: 2.2em;
     color: var(--text-header);
-    margin-bottom: var(--spacing-s); /* Margin bawah menggunakan variabel spacing S */
+    margin-bottom: var(--spacing-s);
     font-weight: 600;
 }
 
 .level-card-description {
     font-size: 1.15em;
     color: var(--text-medium-soft);
-    margin-bottom: var(--spacing-l); /* Margin bawah menggunakan variabel spacing L */
+    margin-bottom: var(--spacing-l);
     flex-grow: 1;
 }
 
@@ -263,7 +263,7 @@ body {
 .main-footer {
     background-color: var(--text-header);
     color: #fff;
-    padding: var(--spacing-m) 0; /* Padding vertikal menggunakan variabel spacing M */
+    padding: var(--spacing-m) 0;
     text-align: center;
     margin-top: auto;
     box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
@@ -272,14 +272,14 @@ body {
 .footer-nav {
     list-style: none;
     padding: 0;
-    margin-top: var(--spacing-m); /* Jarak dari teks hak cipta menggunakan variabel spacing M */
+    margin-top: var(--spacing-m);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .footer-nav li {
-    margin: 0 var(--spacing-s); /* Jarak antar item navigasi footer menggunakan variabel spacing S */
+    margin: 0 var(--spacing-s);
 }
 
 .footer-nav a {
@@ -303,18 +303,18 @@ body {
 
 .module-section {
     background-color: var(--bg-section);
-    padding: var(--spacing-l); /* Padding modul section menggunakan variabel spacing L */
+    padding: var(--spacing-l);
     border-radius: var(--border-radius-large);
     box-shadow: var(--shadow-subtle);
-    margin-bottom: var(--spacing-l); /* Jarak antar section modul menggunakan variabel spacing L */
+    margin-bottom: var(--spacing-l);
     border: 1px solid var(--border-gentle);
 }
 
 .module-section h3 {
     font-size: 2.2em;
     color: var(--text-header);
-    margin-bottom: var(--spacing-m); /* Jarak bawah menggunakan variabel spacing M */
-    padding-bottom: var(--spacing-xs); /* Padding bawah menggunakan variabel spacing XS */
+    margin-bottom: var(--spacing-m);
+    padding-bottom: var(--spacing-xs);
     border-bottom: 2px solid var(--color-primary-calm);
     font-weight: 600;
 }
@@ -322,24 +322,24 @@ body {
 .module-section h4 {
     font-size: 1.6em;
     color: var(--color-accent-fresh);
-    margin-top: var(--spacing-l); /* Jarak atas menggunakan variabel spacing L */
-    margin-bottom: var(--spacing-s); /* Jarak bawah menggunakan variabel spacing S */
+    margin-top: var(--spacing-l);
+    margin-bottom: var(--spacing-s);
     font-weight: 600;
 }
 
 .module-section p {
-    margin-bottom: var(--spacing-s); /* Jarak paragraf menggunakan variabel spacing S */
+    margin-bottom: var(--spacing-s);
     color: var(--text-body);
 }
 
 .module-section ul, .module-section ol {
-    margin: 0 0 var(--spacing-s) var(--spacing-l); /* Margin list menggunakan variabel spacing S dan L */
+    margin: 0 0 var(--spacing-s) var(--spacing-l);
     color: var(--text-body);
     line-height: 1.9;
 }
 
 .module-section li {
-    margin-bottom: var(--spacing-xs); /* Jarak antar item list menggunakan variabel spacing XS */
+    margin-bottom: var(--spacing-xs);
 }
 
 .module-section strong {
@@ -350,33 +350,33 @@ body {
 /* --- KUIS GLOBAL STYLES (Disesuaikan untuk Tata Letak Rapi & Tidak Mepet) --- */
 .quiz-container {
     background-color: var(--bg-card);
-    padding: var(--spacing-l); /* Padding kuis menggunakan variabel spacing L */
+    padding: var(--spacing-l);
     border-radius: var(--border-radius-large);
-    margin-top: var(--spacing-l); /* Margin atas menggunakan variabel spacing L */
+    margin-top: var(--spacing-l);
     border: 1px solid var(--border-gentle);
     box-shadow: var(--shadow-subtle);
 }
 .quiz-question {
     font-size: 1.5em;
-    margin-bottom: var(--spacing-l); /* Jarak bawah menggunakan variabel spacing L */
+    margin-bottom: var(--spacing-l);
     color: var(--color-primary-darker);
     font-weight: bold;
     text-align: center;
-    padding: var(--spacing-s); /* Padding menggunakan variabel spacing S */
+    padding: var(--spacing-s);
     border-bottom: 1px solid var(--border-gentle);
 }
 .quiz-options {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--spacing-m); /* PENTING: Jarak antar tombol opsi menggunakan variabel spacing M */
-    margin-top: var(--spacing-m); /* Jarak atas menggunakan variabel spacing M */
+    gap: var(--spacing-m);
+    margin-top: var(--spacing-m);
 }
 .quiz-options button {
     /* Menggunakan flex-basis untuk lebar dasar, dan max-width untuk kontrol di layar lebar */
-    flex: 1 1 calc(50% - var(--spacing-s)); /* Membuat 2 kolom dengan spasi yang cukup */
-    max-width: 320px; /* Batas lebar maksimum tombol agar tidak terlalu lebar */
-    padding: var(--spacing-s) var(--spacing-m); /* Padding tombol menggunakan variabel spacing S dan M */
+    flex: 1 1 calc(50% - var(--spacing-s));
+    max-width: 320px;
+    padding: var(--spacing-s) var(--spacing-m);
     background-color: var(--color-primary-calm);
     color: #fff;
     border: none;
@@ -400,14 +400,14 @@ body {
     box-shadow: none;
 }
 .quiz-feedback {
-    margin-top: var(--spacing-l); /* Jarak atas menggunakan variabel spacing L */
-    padding: var(--spacing-m); /* Padding feedback menggunakan variabel spacing M */
+    margin-top: var(--spacing-l);
+    padding: var(--spacing-m);
     border-radius: var(--border-radius-large);
     text-align: center;
     font-weight: bold;
     font-size: 1.4em;
     opacity: 0;
-    transform: translateY(var(--spacing-m)); /* Menggunakan variabel spacing M */
+    transform: translateY(var(--spacing-m));
     transition: opacity 0.7s var(--transition-timing-ease), transform 0.7s var(--transition-timing-ease);
 }
 .quiz-feedback.show {
@@ -428,7 +428,7 @@ body {
 /* Tombol next memiliki id yang unik per kuis, jadi list semua ID nya */
 #next-question-btn, #next-greetings-btn, #next-tobe-btn, #next-tense-btn, #next-matching-btn {
     display: none;
-    margin-top: var(--spacing-m); /* Jarak atas menggunakan variabel spacing M */
+    margin-top: var(--spacing-l); /* Diperbesar agar ada lebih banyak ruang setelah feedback */
     width: 100%;
     background-color: var(--color-primary-darker);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -444,8 +444,8 @@ body {
 .matching-options {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-m); /* Jarak antar item mencocokkan menggunakan variabel spacing M */
-    padding: var(--spacing-m); /* Padding menggunakan variabel spacing M */
+    gap: var(--spacing-m);
+    padding: var(--spacing-m);
     border: 1px dashed var(--border-gentle);
     border-radius: var(--border-radius-large);
     min-height: 280px;
@@ -456,17 +456,17 @@ body {
 #matching-quiz-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-l); /* Jarak antar kolom lebih besar menggunakan variabel spacing L */
-    margin-top: var(--spacing-m); /* Jarak atas menggunakan variabel spacing M */
+    gap: var(--spacing-l);
+    margin-top: var(--spacing-m);
 }
 
 .matching-item {
     background-color: var(--bg-card);
-    padding: var(--spacing-m) var(--spacing-l); /* Padding menggunakan variabel spacing M dan L */
+    padding: var(--spacing-s) var(--spacing-m); /* Padding menggunakan variabel spacing S dan M */
     border: 1px solid var(--border-gentle);
     border-radius: var(--border-radius-large);
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.1em; /* Sedikit dikecilkan untuk mencegah bentrok */
     font-weight: 500;
     transition: all var(--transition-duration-slow) var(--transition-timing-ease);
     text-align: center;
@@ -505,7 +505,7 @@ body {
     border-radius: var(--border-radius-large);
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
     text-align: center;
-    font-size: 2.8em;
+    font-size: 2.5em; /* Ukuran angka/huruf utama tetap besar */
     font-weight: bold;
     color: var(--text-header);
     transition: all var(--transition-duration-slow) var(--transition-timing-ease);
@@ -518,25 +518,29 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .item small {
-    font-size: 0.85em;
+    /* PENTING: Penyesuaian font-size untuk teks pengucapan */
+    font-size: 0.75em; /* Dikecilkan dari 0.85em */
+    line-height: 1.2; /* Sedikit lebih rapat jika perlu */
     color: var(--text-medium-soft);
-    margin-top: var(--spacing-xs); /* Menggunakan variabel spacing XS */
+    margin-top: var(--spacing-xs);
 }
 .alphabet-grid, .number-grid {
-    gap: var(--spacing-m); /* Jarak antar item grid menggunakan variabel spacing M */
+    /* PENTING: Penyesuaian minmax di grid agar ada lebih banyak ruang horizontal */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Dari 90px ke 100px */
+    gap: var(--spacing-m);
 }
 
 /* --- KOTAK DIALOG (Dari Modul 2) --- */
 .dialogue-box {
     background-color: var(--bg-section);
     border-left: 10px solid var(--color-primary-darker);
-    padding: var(--spacing-m) var(--spacing-l); /* Padding menggunakan variabel spacing M dan L */
-    margin-bottom: var(--spacing-l); /* Margin bawah menggunakan variabel spacing L */
+    padding: var(--spacing-m) var(--spacing-l);
+    margin-bottom: var(--spacing-l);
     border-radius: var(--border-radius-large);
     box-shadow: inset 0 3px 8px rgba(0,0,0,0.05);
 }
 .dialogue-line {
-    margin-bottom: var(--spacing-s); /* Margin bawah menggunakan variabel spacing S */
+    margin-bottom: var(--spacing-s);
     font-size: 1.15em;
     color: var(--text-body);
 }
@@ -548,14 +552,14 @@ body {
 .grammar-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: var(--spacing-l); /* Margin bawah menggunakan variabel spacing L */
+    margin-bottom: var(--spacing-l);
     box-shadow: var(--shadow-subtle);
     border-radius: var(--border-radius-large);
     overflow: hidden;
 }
 .grammar-table th, .grammar-table td {
     border: 1px solid var(--border-gentle);
-    padding: var(--spacing-m) var(--spacing-m); /* Padding menggunakan variabel spacing M */
+    padding: var(--spacing-m) var(--spacing-m);
     text-align: left;
     color: var(--text-body);
 }
@@ -577,24 +581,24 @@ body {
 .grammar-concept {
     background-color: var(--bg-section);
     border-left: 10px solid var(--color-primary-darker);
-    padding: var(--spacing-m) var(--spacing-l); /* Padding menggunakan variabel spacing M dan L */
-    margin-bottom: var(--spacing-l); /* Margin bawah menggunakan variabel spacing L */
+    padding: var(--spacing-m) var(--spacing-l);
+    margin-bottom: var(--spacing-l);
     border-radius: var(--border-radius-large);
     box-shadow: inset 0 3px 8px rgba(0,0,0,0.05);
 }
 .grammar-concept h4 {
     color: var(--text-header);
-    margin-bottom: var(--spacing-s); /* Margin bawah menggunakan variabel spacing S */
+    margin-bottom: var(--spacing-s);
     font-size: 1.55em;
 }
 .grammar-concept ul {
     list-style: inside disc;
-    margin-left: var(--spacing-l); /* Margin kiri menggunakan variabel spacing L */
+    margin-left: var(--spacing-l);
     color: var(--text-body);
     line-height: 1.9;
 }
 .grammar-concept li {
-    margin-bottom: var(--spacing-xs); /* Menggunakan variabel spacing XS */
+    margin-bottom: var(--spacing-xs);
 }
 .grammar-concept li strong {
     color: var(--color-primary-darker);
@@ -602,14 +606,14 @@ body {
 
 .grammar-example {
     background-color: #EAF9F1;
-    padding: var(--spacing-m) var(--spacing-l); /* Padding menggunakan variabel spacing M dan L */
+    padding: var(--spacing-m) var(--spacing-l);
     border-radius: var(--border-radius-large);
-    margin-top: var(--spacing-m); /* Margin atas menggunakan variabel spacing M */
+    margin-top: var(--spacing-m);
     border: 1px dashed var(--color-accent-fresh);
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
 }
 .grammar-example p {
-    margin-bottom: var(--spacing-xs); /* Menggunakan variabel spacing XS */
+    margin-bottom: var(--spacing-xs);
     color: var(--color-accent-darker);
 }
 .grammar-example p strong {
@@ -618,25 +622,25 @@ body {
 
 /* --- KATEGORI KOSAKATA (Dari Modul 4) --- */
 .vocab-category {
-    margin-bottom: var(--spacing-xl); /* Margin bawah menggunakan variabel spacing XL */
+    margin-bottom: var(--spacing-xl);
 }
 .vocab-category h4 {
     font-size: 1.8em;
     color: var(--text-header);
-    margin-bottom: var(--spacing-m); /* Margin bawah menggunakan variabel spacing M */
+    margin-bottom: var(--spacing-m);
     border-bottom: 2px solid var(--color-primary-calm);
-    padding-bottom: var(--spacing-xs); /* Padding bawah menggunakan variabel spacing XS */
+    padding-bottom: var(--spacing-xs);
 }
 .vocab-list {
     list-style: none;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-m); /* Jarak antar item menggunakan variabel spacing M */
+    gap: var(--spacing-m);
 }
 .vocab-item {
     background-color: var(--bg-card);
-    padding: var(--spacing-m); /* Padding menggunakan variabel spacing M */
+    padding: var(--spacing-m);
     border-radius: var(--border-radius-large);
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     border-left: 10px solid var(--color-accent-fresh);
@@ -652,19 +656,19 @@ body {
     font-size: 2em;
     font-weight: bold;
     color: var(--color-accent-darker);
-    margin-bottom: var(--spacing-s); /* Margin bawah menggunakan variabel spacing S */
+    margin-bottom: var(--spacing-s);
 }
 .vocab-translation {
     font-style: italic;
     color: var(--text-medium-soft);
-    margin-bottom: var(--spacing-s); /* Margin bawah menggunakan variabel spacing S */
+    margin-bottom: var(--spacing-s);
     font-size: 1.05em;
 }
 .vocab-example {
     font-size: 1em;
     color: var(--text-body);
     border-top: 1px dashed var(--border-gentle);
-    padding-top: var(--spacing-s); /* Padding atas menggunakan variabel spacing S */
+    padding-top: var(--spacing-s);
     margin-top: auto;
 }
 .vocab-example strong {
@@ -692,7 +696,7 @@ body {
 
 /* Media query untuk layar lebih kecil dari 768px (misalnya tablet dan mobile) */
 @media (max-width: 768px) {
-    .container { padding: 0 var(--spacing-s); } /* Padding samping lebih kecil di mobile */
+    .container { padding: 0 var(--spacing-s); }
     .site-title { font-size: 2.2em; letter-spacing: 1px; }
     .nav-list { flex-direction: column; gap: var(--spacing-xs); }
     .nav-item { margin: 0; }
@@ -717,7 +721,7 @@ body {
 
     /* Penyesuaian kuis di mobile */
     .quiz-question { font-size: 1.4em; margin-bottom: var(--spacing-m); }
-    .quiz-options { gap: var(--spacing-s); } /* Jarak tombol kuis lebih kecil di mobile */
+    .quiz-options { gap: var(--spacing-s); }
     .quiz-options button { flex: 1 1 100%; max-width: none; padding: var(--spacing-xs) var(--spacing-s); font-size: 1.05em; }
     .quiz-feedback { font-size: 1.2em; padding: var(--spacing-s); }
     
@@ -725,9 +729,10 @@ body {
     .matching-options { min-height: auto; padding: var(--spacing-s); gap: var(--spacing-xs); }
     .matching-item { padding: var(--spacing-xs) var(--spacing-s); font-size: 1.05em; }
 
-    .item { font-size: 2.5em; padding: var(--spacing-s) var(--spacing-xs); } /* Padding lebih sedikit di mobile */
-    .item small { font-size: 0.8em; }
-    .alphabet-grid, .number-grid { gap: var(--spacing-s); } /* Gap lebih kecil di mobile */
+    /* Penyesuaian spesifik untuk .item (angka/huruf) di mobile */
+    .item { font-size: 2.2em; padding: var(--spacing-s) var(--spacing-xs); } /* Padding disesuaikan */
+    .item small { font-size: 0.7em; } /* Dikecilkan lagi di mobile jika perlu */
+    .alphabet-grid, .number-grid { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: var(--spacing-s); } /* minmax dan gap disesuaikan */
     
     .grammar-table th, .grammar-table td { padding: var(--spacing-s) var(--spacing-s); font-size: 1em; }
     .dialogue-box { padding: var(--spacing-m) var(--spacing-l); }
@@ -737,8 +742,8 @@ body {
 
 /* Media query untuk layar lebih kecil dari 480px (misalnya smartphone) */
 @media (max-width: 480px) {
-    .site-title { font-size: 2em; }
-    .section-title { font-size: 2em; margin-bottom: var(--spacing-m); }
+    .site-title { font-size: 1.8em; }
+    .section-title { font-size: 1.8em; margin-bottom: var(--spacing-m); }
     .section-title::after { width: 90px; height: 5px; }
     .section-description, .call-to-action { font-size: 1.05em; margin-bottom: var(--spacing-m); }
     .btn { padding: var(--spacing-xs) var(--spacing-s); font-size: 1.05em; }
@@ -750,7 +755,12 @@ body {
     .module-section h4 { font-size: 1.4em; }
     .module-section p { font-size: 0.95em; }
     .module-section ul, .module-section ol { font-size: 0.95em; margin-left: var(--spacing-m); }
-    .item { font-size: 2em; padding: var(--spacing-xs) var(--spacing-xs); }
+    
+    /* Penyesuaian spesifik untuk .item (angka/huruf) di layar sangat kecil */
+    .item { font-size: 1.8em; padding: var(--spacing-xs) var(--spacing-xs); }
+    .item small { font-size: 0.65em; } /* Lebih dikecilkan lagi */
+    .alphabet-grid, .number-grid { grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: var(--spacing-s); } /* minmax lebih kecil */
+
     .vocab-word { font-size: 1.8em; }
     .vocab-translation { font-size: 0.9em; }
 }
