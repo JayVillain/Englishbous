@@ -1,298 +1,304 @@
 /* assets/css/style.css */
 
 /* --- RESET CSS --- */
-/* Mengatur ulang margin, padding, dan box-sizing untuk konsistensi di berbagai browser */
+/* Mengatur ulang margin, padding, dan box-sizing untuk konsistensi di berbagai browser.
+   Ini adalah praktik terbaik untuk menghindari perbedaan rendering default browser. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- BASE STYLES (Gaya Dasar) --- */
+/* --- BASE STYLES (Gaya Dasar untuk Seluruh Halaman) --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Pilihan font yang bersih dan mudah dibaca */
-    line-height: 1.6; /* Ketinggian baris untuk keterbacaan yang lebih baik */
-    color: #333; /* Warna teks utama yang gelap */
-    background-color: #f4f4f4; /* Warna latar belakang halaman yang lembut */
-    display: flex; /* Menggunakan flexbox untuk layout halaman penuh */
-    flex-direction: column; /* Konten disusun secara kolom (header, main, footer) */
-    min-height: 100vh; /* Memastikan body setidaknya setinggi viewport */
+    line-height: 1.6; /* Ketinggian baris untuk keterbacaan paragraf yang lebih baik */
+    color: #333; /* Warna teks utama yang netral dan mudah dibaca */
+    background-color: #f4f4f4; /* Warna latar belakang halaman yang lembut dan tidak mencolok */
+    display: flex; /* Menggunakan Flexbox untuk menata elemen utama (header, main, footer) */
+    flex-direction: column; /* Mengatur elemen utama dalam satu kolom */
+    min-height: 100vh; /* Memastikan body mengisi setidaknya seluruh tinggi viewport (layar pengguna) */
 }
 
-/* --- CONTAINER (Pembungkus Konten) --- */
-/* Digunakan untuk membatasi lebar konten agar tidak terlalu melebar di layar besar */
+/* CONTAINER: Kelas utilitas untuk membatasi lebar konten dan memusatkannya. */
 .container {
-    max-width: 1200px; /* Lebar maksimum kontainer */
-    margin: 0 auto; /* Pusatkan kontainer di tengah halaman */
-    padding: 0 20px; /* Padding samping untuk menjaga konten tidak terlalu mepet ke tepi layar */
+    max-width: 1200px; /* Lebar maksimum kontainer untuk desktop */
+    margin: 0 auto; /* Otomatis memusatkan kontainer secara horizontal */
+    padding: 0 20px; /* Padding samping untuk mencegah konten menempel di tepi layar */
 }
 
 /* --- HEADER (Bagian Atas Situs) --- */
 .main-header {
-    background-color: #007bff; /* Warna latar belakang header (biru) */
+    background-color: #007bff; /* Warna latar belakang header (biru cerah) */
     color: #fff; /* Warna teks di header (putih) */
-    padding: 20px 0; /* Padding atas dan bawah */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Efek bayangan untuk memberikan kedalaman */
+    padding: 20px 0; /* Padding vertikal di dalam header */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Efek bayangan lembut untuk memberikan kedalaman */
 }
 
 .site-title {
     font-size: 2.2em; /* Ukuran font judul situs */
-    margin: 0; /* Hapus margin default */
-    text-align: center; /* Pusatkan teks judul */
-    letter-spacing: 1px; /* Jarak antar huruf */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Sedikit bayangan pada teks */
+    margin: 0; /* Menghapus margin default h1 */
+    text-align: center; /* Memusatkan teks judul */
+    letter-spacing: 1px; /* Jarak antar huruf untuk estetika */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Sedikit bayangan pada teks judul */
 }
 
 /* --- NAVIGATION (Navigasi Utama) --- */
 .main-nav {
     margin-top: 15px; /* Jarak antara judul situs dan navigasi */
-    text-align: center; /* Pusatkan item navigasi */
+    text-align: center; /* Memusatkan menu navigasi */
 }
 
 .nav-list {
-    list-style: none; /* Hapus bullet point default dari list */
-    padding: 0;
-    display: flex; /* Menggunakan flexbox untuk menata item navigasi */
-    justify-content: center; /* Pusatkan item secara horizontal */
-    flex-wrap: wrap; /* Izinkan item untuk wrap ke baris baru di layar kecil */
+    list-style: none; /* Menghapus bullet point default dari list */
+    padding: 0; /* Menghapus padding default list */
+    display: flex; /* Menggunakan Flexbox untuk menata item navigasi secara horizontal */
+    justify-content: center; /* Memusatkan item navigasi secara horizontal */
+    flex-wrap: wrap; /* Memungkinkan item navigasi untuk wrap ke baris baru jika layar terlalu kecil */
 }
 
 .nav-item {
-    margin: 0 15px; /* Jarak antar item navigasi */
+    margin: 0 15px; /* Jarak horizontal antar item navigasi */
 }
 
 .nav-link {
-    color: #fff; /* Warna teks link navigasi */
-    text-decoration: none; /* Hapus garis bawah default link */
-    font-weight: 500; /* Ketebalan font */
+    color: #fff; /* Warna teks link navigasi (putih) */
+    text-decoration: none; /* Menghapus garis bawah default link */
+    font-weight: 500; /* Ketebalan font untuk penekanan */
     font-size: 1.1em; /* Ukuran font link */
-    padding: 5px 0; /* Padding untuk area klik */
-    position: relative; /* Diperlukan untuk efek hover underline */
-    transition: color 0.3s ease; /* Transisi warna halus saat hover */
+    padding: 5px 0; /* Padding vertikal untuk area klik yang lebih besar */
+    position: relative; /* Penting untuk posisi pseudo-element underline */
+    transition: color 0.3s ease; /* Transisi warna teks yang halus saat hover */
 }
 
+/* Pseudo-element untuk efek underline animasi saat hover */
 .nav-link::after {
-    content: ''; /* Pseudo-element untuk underline */
-    position: absolute;
-    width: 0; /* Awalnya tidak terlihat */
-    height: 2px;
+    content: ''; /* Konten kosong agar pseudo-element muncul */
+    position: absolute; /* Posisi absolut relatif terhadap .nav-link */
+    width: 0; /* Awalnya lebar 0, sehingga tidak terlihat */
+    height: 2px; /* Tinggi underline */
     background-color: #fff; /* Warna underline */
-    left: 0;
-    bottom: 0;
-    transition: width 0.3s ease-out; /* Transisi lebar halus */
+    left: 0; /* Mulai dari sisi kiri link */
+    bottom: 0; /* Posisi di bagian bawah link */
+    transition: width 0.3s ease-out; /* Transisi lebar halus saat berubah */
 }
 
+/* Efek saat link di-hover atau merupakan halaman aktif (kelas 'current') */
 .nav-link:hover::after,
 .nav-link.current::after {
-    width: 100%; /* Lebar 100% saat hover atau jika itu halaman aktif */
+    width: 100%; /* Lebar penuh saat di-hover atau aktif, menciptakan efek underline */
 }
 
 /* --- MAIN CONTENT (Konten Utama) --- */
 .main-content {
-    flex-grow: 1; /* Memastikan main content mengisi ruang yang tersedia */
-    padding: 40px 0; /* Padding atas dan bawah */
+    flex-grow: 1; /* Memastikan bagian main content mengambil semua ruang vertikal yang tersedia */
+    padding: 40px 0; /* Padding vertikal untuk memisahkan konten dari header/footer */
 }
 
+/* Judul Bagian di dalam main content (misal: "Tingkatkan Kemampuan Bahasa Inggrismu") */
 .section-title {
-    font-size: 2em;
-    color: #0056b3; /* Warna judul bagian */
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative; /* Untuk underline dekoratif */
-    padding-bottom: 10px;
+    font-size: 2em; /* Ukuran font judul bagian */
+    color: #0056b3; /* Warna judul yang lebih gelap dari biru header */
+    text-align: center; /* Memusatkan teks judul */
+    margin-bottom: 20px; /* Jarak bawah dari judul */
+    position: relative; /* Penting untuk posisi underline dekoratif */
+    padding-bottom: 10px; /* Padding bawah untuk jarak underline */
 }
 
+/* Underline dekoratif untuk judul bagian */
 .section-title::after {
     content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 80px;
-    height: 3px;
-    background-color: #007bff;
-    border-radius: 2px;
+    left: 50%; /* Pusatkan secara horizontal */
+    transform: translateX(-50%); /* Penyesuaian untuk pemusatan yang akurat */
+    bottom: 0; /* Posisi di bagian bawah judul */
+    width: 80px; /* Lebar underline */
+    height: 3px; /* Tinggi underline */
+    background-color: #007bff; /* Warna underline */
+    border-radius: 2px; /* Sedikit lengkungan pada ujung underline */
 }
 
 .section-description, .call-to-action {
-    font-size: 1.1em;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 25px auto;
-    color: #555;
+    font-size: 1.1em; /* Ukuran font untuk deskripsi dan CTA */
+    text-align: center; /* Memusatkan teks */
+    max-width: 800px; /* Lebar maksimum teks agar tidak terlalu panjang di layar lebar */
+    margin: 0 auto 25px auto; /* Memusatkan paragraf dan memberi margin bawah */
+    color: #555; /* Warna teks abu-abu tua */
 }
 
 /* --- BUTTONS (Tombol) --- */
 .btn {
     display: inline-block; /* Agar bisa diberi padding dan margin */
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    cursor: pointer;
-    border: none;
+    padding: 12px 25px; /* Padding di dalam tombol */
+    border-radius: 5px; /* Sudut tombol melengkung */
+    text-decoration: none; /* Menghapus garis bawah default link */
+    font-weight: bold; /* Teks tombol tebal */
+    font-size: 1.1em; /* Ukuran font tombol */
+    cursor: pointer; /* Mengubah kursor menjadi pointer saat di atas tombol */
+    border: none; /* Menghapus border default tombol */
     transition: background-color 0.3s ease, transform 0.2s ease; /* Animasi halus saat hover */
 }
 
+/* Tombol utama (primary) */
 .btn-primary {
     background-color: #28a745; /* Warna hijau cerah */
-    color: #fff;
-    margin-top: 20px; /* Jarak dari teks di atasnya */
-    display: block; /* Agar mengambil lebar penuh di layar kecil */
-    width: fit-content; /* Lebar menyesuaikan konten */
+    color: #fff; /* Warna teks putih */
+    margin-top: 20px; /* Jarak dari elemen di atasnya */
+    display: block; /* Mengambil lebar penuh parent di mobile */
+    width: fit-content; /* Lebar tombol menyesuaikan konten teks */
     margin-left: auto;
-    margin-right: auto; /* Untuk pusatkan tombol */
+    margin-right: auto; /* Memusatkan tombol */
 }
 
 .btn-primary:hover {
     background-color: #218838; /* Warna hijau lebih gelap saat hover */
-    transform: translateY(-2px); /* Efek sedikit naik saat hover */
+    transform: translateY(-2px); /* Efek tombol sedikit naik saat hover */
 }
 
+/* Tombol sekunder (secondary) */
 .btn-secondary {
-    background-color: #6c757d; /* Warna abu-abu */
-    color: #fff;
+    background-color: #6c757d; /* Warna abu-abu netral */
+    color: #fff; /* Warna teks putih */
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268;
-    transform: translateY(-2px);
+    background-color: #5a6268; /* Warna abu-abu lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek tombol sedikit naik saat hover */
 }
 
-/* --- LEVEL CARDS GRID (Grid Kartu Level) --- */
+/* --- LEVEL CARDS GRID (Grid Kartu Level Pembelajaran) --- */
 .level-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Kolom adaptif */
-    gap: 30px; /* Jarak antar kartu */
-    margin-top: 40px;
+    display: grid; /* Menggunakan CSS Grid untuk tata letak kartu */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Kolom adaptif: minimal 280px, maksimum 1fr (distribusi merata) */
+    gap: 30px; /* Jarak antar kartu (grid gap) */
+    margin-top: 40px; /* Jarak dari bagian di atasnya */
 }
 
 .level-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Bayangan yang lebih menonjol */
-    padding: 30px;
-    text-align: center;
+    background-color: #fff; /* Latar belakang kartu putih */
+    border-radius: 10px; /* Sudut kartu melengkung */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Bayangan yang lebih menonjol untuk efek "mengambang" */
+    padding: 30px; /* Padding di dalam kartu */
+    text-align: center; /* Memusatkan teks di dalam kartu */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi halus saat hover */
-    display: flex; /* Untuk menata konten di dalam kartu */
-    flex-direction: column;
-    justify-content: space-between; /* Untuk mendorong tombol ke bawah */
+    display: flex; /* Menggunakan Flexbox untuk menata konten di dalam kartu */
+    flex-direction: column; /* Konten disusun secara kolom */
+    justify-content: space-between; /* Untuk mendorong tombol ke bagian bawah kartu */
 }
 
 .level-card:hover {
-    transform: translateY(-5px); /* Efek sedikit naik saat hover */
+    transform: translateY(-5px); /* Efek kartu sedikit naik saat hover */
     box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Bayangan lebih gelap saat hover */
 }
 
 .level-card-title {
-    font-size: 1.6em;
-    color: #007bff;
-    margin-bottom: 10px;
+    font-size: 1.6em; /* Ukuran font judul kartu */
+    color: #007bff; /* Warna judul kartu (biru cerah) */
+    margin-bottom: 10px; /* Jarak bawah dari judul kartu */
 }
 
 .level-card-description {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 25px;
-    flex-grow: 1; /* Memastikan deskripsi mengisi ruang yang tersedia */
+    font-size: 1em; /* Ukuran font deskripsi kartu */
+    color: #666; /* Warna teks deskripsi (abu-abu) */
+    margin-bottom: 25px; /* Jarak bawah dari deskripsi */
+    flex-grow: 1; /* Memastikan deskripsi mengisi ruang yang tersedia di kartu */
 }
 
 
 /* --- FOOTER (Bagian Bawah Situs) --- */
 .main-footer {
-    background-color: #333; /* Warna latar belakang footer */
-    color: #fff; /* Warna teks di footer */
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto; /* Mendorong footer ke bagian bawah halaman */
+    background-color: #333; /* Warna latar belakang footer (abu-abu gelap) */
+    color: #fff; /* Warna teks di footer (putih) */
+    padding: 20px 0; /* Padding vertikal */
+    text-align: center; /* Memusatkan teks di footer */
+    margin-top: auto; /* Penting: Mendorong footer ke bagian paling bawah halaman (berkat display: flex pada body) */
 }
 
 .footer-nav {
-    list-style: none;
+    list-style: none; /* Menghapus bullet point default */
     padding: 0;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin-top: 10px; /* Jarak dari teks hak cipta */
+    display: flex; /* Menggunakan Flexbox untuk menata navigasi footer */
+    justify-content: center; /* Memusatkan item navigasi footer */
+    flex-wrap: wrap; /* Memungkinkan item wrap di layar kecil */
 }
 
 .footer-nav li {
-    margin: 0 10px;
+    margin: 0 10px; /* Jarak antar item navigasi footer */
 }
 
 .footer-nav a {
-    color: #bbb; /* Warna link di footer */
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: #bbb; /* Warna link di footer (abu-abu muda) */
+    text-decoration: none; /* Menghapus garis bawah */
+    transition: color 0.3s ease; /* Transisi warna halus saat hover */
 }
 
 .footer-nav a:hover {
-    color: #fff; /* Warna link berubah saat hover */
+    color: #fff; /* Warna link berubah menjadi putih saat hover */
 }
 
 
 /* --- RESPONSIVE DESIGN (Desain Responsif) --- */
-/* Media query untuk layar lebih kecil dari 768px (misalnya tablet dan mobile) */
+/* Media query untuk layar lebih kecil dari 768px (misalnya tablet dalam mode portrait) */
 @media (max-width: 768px) {
     .site-title {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Ukuran judul situs lebih kecil */
     }
 
     .nav-item {
-        margin: 0 10px;
+        margin: 0 10px; /* Jarak antar item navigasi sedikit lebih kecil */
     }
 
     .nav-link {
-        font-size: 1em;
+        font-size: 1em; /* Ukuran font navigasi sedikit lebih kecil */
     }
 
     .hero-section, .levels-overview {
-        padding: 20px 0;
+        padding: 20px 0; /* Padding vertikal section lebih kecil */
     }
 
     .section-title {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Ukuran judul section lebih kecil */
     }
 
     .level-cards-grid {
-        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+        grid-template-columns: 1fr; /* Di layar kecil, kartu disusun satu kolom saja */
     }
 
     .level-card {
-        padding: 25px;
+        padding: 25px; /* Padding kartu sedikit lebih kecil */
     }
 
     .btn-primary {
-        width: 90%; /* Tombol utama mengambil lebar lebih besar di mobile */
+        width: 90%; /* Tombol utama mengambil lebar lebih besar di mobile agar mudah diklik */
     }
 }
 
 /* Media query untuk layar lebih kecil dari 480px (misalnya smartphone) */
 @media (max-width: 480px) {
     .main-header {
-        padding: 15px 0;
+        padding: 15px 0; /* Padding header lebih kecil lagi */
     }
     .site-title {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Ukuran judul situs paling kecil */
     }
     .nav-list {
-        flex-direction: column; /* Menu navigasi bertumpuk di layar sangat kecil */
-        gap: 10px; /* Jarak antar item */
+        flex-direction: column; /* Item navigasi bertumpuk secara vertikal */
+        gap: 10px; /* Jarak antar item bertumpuk */
     }
     .nav-item {
-        margin: 0;
+        margin: 0; /* Hapus margin horizontal antar item */
     }
     .section-title {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Ukuran judul section paling kecil */
     }
     .section-description, .call-to-action {
-        font-size: 0.95em;
+        font-size: 0.95em; /* Ukuran font deskripsi lebih kecil */
         margin-left: 10px;
-        margin-right: 10px;
+        margin-right: 10px; /* Margin samping agar teks tidak menempel ke tepi */
     }
     .btn {
-        padding: 10px 20px;
-        font-size: 1em;
+        padding: 10px 20px; /* Padding tombol lebih kecil */
+        font-size: 1em; /* Ukuran font tombol lebih kecil */
     }
 }
