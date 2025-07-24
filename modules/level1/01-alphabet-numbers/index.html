@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 1: Alphabet & Numbers Mastery - English Pro-Builder</title>
+    
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    
+    <style>
+        /* Gaya khusus untuk tampilan Alphabet dan Numbers */
+        .alphabet-grid, .number-grid {
+            display: grid; /* Menggunakan CSS Grid untuk tata letak yang rapi */
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Kolom adaptif */
+            gap: 15px; /* Jarak antar item grid */
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .item {
+            background-color: #f0f8ff; /* Warna latar belakang item */
+            padding: 15px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Bayangan lembut */
+            text-align: center;
+            font-size: 2em; /* Ukuran font besar untuk huruf/angka */
+            font-weight: bold;
+            color: #0056b3; /* Warna teks */
+            transition: transform 0.2s ease, background-color 0.2s ease; /* Animasi hover */
+            cursor: default; /* Kursor default karena ini bukan tombol */
+        }
+        .item:hover {
+            transform: translateY(-3px); /* Efek naik sedikit saat hover */
+            background-color: #e0f0ff; /* Perubahan warna latar belakang saat hover */
+        }
+        .item small {
+            display: block; /* Membuat terjemahan di baris baru */
+            font-size: 0.7em;
+            color: #666;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        /* Gaya untuk bagian kuis */
+        .quiz-container {
+            background-color: #e9f5e9; /* Latar belakang hijau muda untuk kuis */
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border: 1px solid #c8e6c9;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .quiz-question {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #28a745; /* Warna teks pertanyaan kuis */
+            font-weight: bold;
+            text-align: center;
+        }
+        .quiz-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Pusatkan tombol opsi */
+            gap: 15px; /* Jarak antar tombol opsi */
+        }
+        .quiz-options button {
+            flex: 1 1 calc(50% - 15px); /* Dua kolom di layar besar, satu di layar kecil */
+            max-width: 200px; /* Batasi lebar maksimum tombol opsi */
+            padding: 12px 20px;
+            background-color: #007bff; /* Warna tombol opsi */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .quiz-options button:hover:not([disabled]) {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .quiz-options button:disabled {
+            opacity: 0.7; /* Sedikit transparan saat dinonaktifkan */
+            cursor: not-allowed;
+        }
+
+        .quiz-feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            opacity: 0; /* Awalnya tersembunyi */
+            transform: translateY(10px); /* Awalnya sedikit di bawah */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Animasi muncul */
+        }
+        .quiz-feedback.show {
+            opacity: 1; /* Tampilkan saat ada kelas 'show' */
+            transform: translateY(0); /* Kembali ke posisi normal */
+        }
+        .quiz-feedback.correct {
+            background-color: #d4edda; /* Latar belakang hijau muda */
+            color: #155724; /* Teks hijau tua */
+            border: 1px solid #c3e6cb;
+        }
+        .quiz-feedback.incorrect {
+            background-color: #f8d7da; /* Latar belakang merah muda */
+            color: #721c24; /* Teks merah tua */
+            border: 1px solid #f5c6cb;
+        }
+        
+        #next-question-btn {
+            display: none; /* Awalnya tersembunyi */
+            margin-top: 20px;
+            width: 100%; /* Tombol next mengambil lebar penuh */
+            background-color: #6c757d; /* Warna abu-abu untuk tombol next */
+        }
+        #next-question-btn:hover {
+            background-color: #5a6268;
+        }
+
+        /* Media queries untuk responsifitas tombol kuis */
+        @media (max-width: 600px) {
+            .quiz-options button {
+                flex: 1 1 100%; /* Satu kolom di layar sangat kecil */
+                max-width: none; /* Hapus batas lebar maksimum */
+            }
+        }
+
+        @media (max-width: 400px) {
+            .item {
+                font-size: 1.5em; /* Ukuran font lebih kecil untuk item di layar sangat kecil */
+                padding: 10px 5px;
+            }
+            .alphabet-grid, .number-grid {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title">English Pro-Builder</h1>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../../../index.html" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link current">Level 1</a></li> 
+                    <li class="nav-item"><a href="../../../about.html" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="../../../contact.html" class="nav-link">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container module-page">
+            <h2 class="section-title">Modul 1: Alphabet & Numbers Mastery</h2>
+            <p class="section-description">
+                Selamat datang di modul pertama! Di sini Anda akan menguasai dasar-dasar bahasa Inggris: mengenal huruf alfabet dan angka. Pemahaman yang kuat di area ini akan menjadi fondasi penting untuk pembelajaran selanjutnya.
+            </p>
+
+            <section class="module-section">
+                <h3>1. Alfabet (The Alphabet)</h3>
+                <p>Alfabet bahasa Inggris terdiri dari 26 huruf. Mengenal setiap huruf, baik huruf besar (capital letters) maupun huruf kecil (lowercase letters), sangat penting. Perhatikan bagaimana setiap huruf ditulis dan dibaca.</p>
+                <div class="alphabet-grid">
+                    <div class="item">A <small>(ei)</small></div>
+                    <div class="item">B <small>(bi)</small></div>
+                    <div class="item">C <small>(si)</small></div>
+                    <div class="item">D <small>(di)</small></div>
+                    <div class="item">E <small>(i)</small></div>
+                    <div class="item">F <small>(ef)</small></div>
+                    <div class="item">G <small>(dji)</small></div>
+                    <div class="item">H <small>(eitch)</small></div>
+                    <div class="item">I <small>(ai)</small></div>
+                    <div class="item">J <small>(djei)</small></div>
+                    <div class="item">K <small>(kei)</small></div>
+                    <div class="item">L <small>(el)</small></div>
+                    <div class="item">M <small>(em)</small></div>
+                    <div class="item">N <small>(en)</small></div>
+                    <div class="item">O <small>(ou)</small></div>
+                    <div class="item">P <small>(pi)</small></div>
+                    <div class="item">Q <small>(kju)</small></div>
+                    <div class="item">R <small>(ar)</small></div>
+                    <div class="item">S <small>(es)</small></div>
+                    <div class="item">T <small>(ti)</small></div>
+                    <div class="item">U <small>(yu)</small></div>
+                    <div class="item">V <small>(vi)</small></div>
+                    <div class="item">W <small>(dabel-yu)</small></div>
+                    <div class="item">X <small>(eks)</small></div>
+                    <div class="item">Y <small>(wai)</small></div>
+                    <div class="item">Z <small>(zed / zi)</small></div>
+                </div>
+            </section>
+
+            <section class="module-section">
+                <h3>2. Angka (Numbers)</h3>
+                <p>Angka adalah bagian penting dari komunikasi sehari-hari. Kita akan belajar dua jenis angka: Angka Cardinal (untuk menghitung jumlah) dan Angka Ordinal (untuk menunjukkan urutan).</p>
+
+                <h4>Angka Cardinal (Cardinal Numbers) - Jumlah</h4>
+                <p>Digunakan untuk menyatakan jumlah benda atau orang. Berikut adalah beberapa contoh dasar:</p>
+                <div class="number-grid">
+                    <div class="item">0 <small>(zero / nought)</small></div>
+                    <div class="item">1 <small>(one)</small></div>
+                    <div class="item">2 <small>(two)</small></div>
+                    <div class="item">3 <small>(three)</small></div>
+                    <div class="item">4 <small>(four)</small></div>
+                    <div class="item">5 <small>(five)</small></div>
+                    <div class="item">6 <small>(six)</small></div>
+                    <div class="item">7 <small>(seven)</small></div>
+                    <div class="item">8 <small>(eight)</small></div>
+                    <div class="item">9 <small>(nine)</small></div>
+                    <div class="item">10 <small>(ten)</small></div>
+                    <div class="item">11 <small>(eleven)</small></div>
+                    <div class="item">12 <small>(twelve)</small></div>
+                    <div class="item">13 <small>(thirteen)</small></div>
+                    <div class="item">14 <small>(fourteen)</small></div>
+                    <div class="item">15 <small>(fifteen)</small></div>
+                    <div class="item">16 <small>(sixteen)</small></div>
+                    <div class="item">17 <small>(seventeen)</small></div>
+                    <div class="item">18 <small>(eighteen)</small></div>
+                    <div class="item">19 <small>(nineteen)</small></div>
+                    <div class="item">20 <small>(twenty)</small></div>
+                    <div class="item">21 <small>(twenty-one)</small></div>
+                    <div class="item">30 <small>(thirty)</small></div>
+                    <div class="item">40 <small>(forty)</small></div>
+                    <div class="item">50 <small>(fifty)</small></div>
+                    <div class="item">100 <small>(one hundred)</small></div>
+                    <div class="item">1000 <small>(one thousand)</small></div>
+                </div>
+
+                <h4>Angka Ordinal (Ordinal Numbers) - Urutan</h4>
+                <p>Digunakan untuk menyatakan urutan atau posisi dalam suatu seri (misal: "yang pertama", "yang kedua").</p>
+                <div class="number-grid">
+                    <div class="item">1st <small>(first)</small></div>
+                    <div class="item">2nd <small>(second)</small></div>
+                    <div class="item">3rd <small>(third)</small></div>
+                    <div class="item">4th <small>(fourth)</small></div>
+                    <div class="item">5th <small>(fifth)</small></div>
+                    <div class="item">10th <small>(tenth)</small></div>
+                    <div class="item">20th <small>(twentieth)</small></div>
+                    <div class="item">21st <small>(twenty-first)</small></div>
+                    <div class="item">100th <small>(hundredth)</small></div>
+                </div>
+            </section>
+
+            <section class="module-section">
+                <h3>Latihan: Identifikasi Angka (Exercise: Identify the Number)</h3>
+                <p>Pilih angka yang benar sesuai dengan pertanyaannya. Perhatikan penulisan angka dalam Bahasa Inggris!</p>
+                <div class="quiz-container">
+                    <p class="quiz-question" id="number-quiz-question">Manakah angka 'dua'?</p>
+                    
+                    <div class="quiz-options" id="number-quiz-options">
+                        <button data-answer="1">1</button>
+                        <button data-answer="2">2</button>
+                        <button data-answer="3">3</button>
+                        <button data-answer="4">4</button>
+                    </div>
+                    
+                    <div class="quiz-feedback" id="number-quiz-feedback"></div>
+                    
+                    <button id="next-question-btn" class="btn btn-secondary">Pertanyaan Selanjutnya</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> English Pro-Builder. Hak Cipta Dilindungi Undang-Undang.</p>
+            <ul class="footer-nav">
+                <li><a href="../../../about.html">Tentang</a></li>
+                <li><a href="../../../contact.html">Kontak</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../../assets/js/main.js"></script>
+    <script src="../../../assets/js/quiz.js"></script>
+    
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
