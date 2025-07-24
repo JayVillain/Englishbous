@@ -61,15 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
             options: ["F", "S", "X", "Z"],
             correctAnswer: "S"
         }
-        // Tambahkan lebih banyak pertanyaan di sini untuk variasi Modul 1
     ];
 
     // --- Data Kuis untuk Modul 2: Greetings & Introductions ---
-    // Pastikan ID elemen di HTML modul ini cocok:
-    // - questionElement: 'greetings-quiz-question'
-    // - optionsContainer: 'greetings-quiz-options'
-    // - feedbackElement: 'greetings-quiz-feedback'
-    // - nextButton: 'next-greetings-btn'
     const greetingsQuizData = [
         {
             question: "Lengkapi: 'Hello, ___ are you?'",
@@ -94,11 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     // --- Data Kuis untuk Modul 3: Pronouns & 'To Be' ---
-    // Pastikan ID elemen di HTML modul ini cocok:
-    // - questionElement: 'tobe-quiz-question'
-    // - optionsContainer: 'tobe-quiz-options'
-    // - feedbackElement: 'tobe-quiz-feedback'
-    // - nextButton: 'next-tobe-btn'
     const tobeQuizData = [
         {
             question: "Lengkapi: 'I ___ a student.'",
@@ -124,6 +113,41 @@ document.addEventListener('DOMContentLoaded', () => {
             question: "Ubah 'Kamu pintar.' ke bahasa Inggris:",
             options: ["You is smart.", "You are smart.", "You am smart.", "You be smart."],
             correctAnswer: "You are smart."
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 5: Simple Present & Present Continuous ---
+    // ID elemen: 'tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn'
+    const tenseQuizData = [
+        {
+            question: "I often ___ (go) to the library.",
+            options: ["go", "am going", "goes", "is going"],
+            correctAnswer: "go"
+        },
+        {
+            question: "She ___ (study) English right now.",
+            options: ["study", "studies", "is studying", "are studying"],
+            correctAnswer: "is studying"
+        },
+        {
+            question: "The sun ___ (rise) in the East.",
+            options: ["rise", "is rising", "rises", "are rising"],
+            correctAnswer: "rises"
+        },
+        {
+            question: "They ___ (not play) soccer at the moment.",
+            options: ["do not play", "are not playing", "does not play", "is not playing"],
+            correctAnswer: "are not playing"
+        },
+        {
+            question: "___ you ___ (listen) to music now?",
+            options: ["Are you listen", "Do you listen", "Are you listening", "Do you listening"],
+            correctAnswer: "Are you listening"
+        },
+        {
+            question: "He ___ (work) every day from 9 to 5.",
+            options: ["work", "is working", "works", "are working"],
+            correctAnswer: "works"
         }
     ];
 
@@ -271,5 +295,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // ID elemen: 'tobe-quiz-question', 'tobe-quiz-options', 'tobe-quiz-feedback', 'next-tobe-btn'
     if (document.getElementById('tobe-quiz-question')) {
         initQuiz('tobe-quiz-question', 'tobe-quiz-options', 'tobe-quiz-feedback', 'next-tobe-btn', tobeQuizData);
+    }
+
+    // BARU: Inisialisasi Kuis Modul 5: Simple Present & Present Continuous
+    // ID elemen: 'tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn'
+    if (document.getElementById('tense-quiz-question')) {
+        initQuiz('tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn', tenseQuizData);
     }
 });
