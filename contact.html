@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami | English Pro-Builder</title>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* CSS spesifik untuk halaman kontak, jika ada */
+        .contact-info-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: var(--spacing-l);
+            text-align: center;
+        }
+        .contact-info-list li {
+            margin-bottom: var(--spacing-m);
+            font-size: 1.2em;
+            color: var(--text-body);
+        }
+        .contact-info-list li strong {
+            color: var(--text-header);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.1em;
+        }
+        .contact-info-list li a {
+            color: var(--color-primary-darker);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-duration-slow) var(--transition-timing-ease);
+        }
+        .contact-info-list li a:hover {
+            color: var(--color-accent-fresh);
+            text-decoration: underline;
+        }
+        .social-media-links {
+            text-align: center;
+            margin-top: var(--spacing-l);
+        }
+        .social-media-links p {
+            font-size: 1.1em;
+            color: var(--text-body);
+            margin-bottom: var(--spacing-s);
+        }
+        .social-media-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-m);
+        }
+        .social-media-links li a {
+            font-size: 1.5em; /* Ukuran teks untuk nama media sosial */
+            color: var(--color-primary-darker);
+            text-decoration: none;
+            transition: color var(--transition-duration-slow) var(--transition-timing-ease);
+        }
+        .social-media-links li a:hover {
+            color: var(--color-accent-fresh);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title">English Pro-Builder</h1>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="modules/level1/01-alphabet-numbers/index.html" class="nav-link">Mulai Belajar</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link current">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container module-page">
+            <h2 class="section-title">Kontak Kami</h2>
+            <p class="section-description">
+                Kami senang mendengar dari Anda! Jika Anda memiliki pertanyaan, saran, atau masukan, jangan ragu untuk menghubungi kami melalui informasi di bawah ini.
+            </p>
+
+            <section class="module-section">
+                <h3>Informasi Kontak</h3>
+                <ul class="contact-info-list">
+                    <li>
+                        <strong>Email:</strong>
+                        <a href="mailto:info@englishprobuilder.com">info@englishprobuilder.com</a>
+                    </li>
+                    <li>
+                        <strong>Dukungan Pengguna:</strong>
+                        <a href="mailto:support@englishprobuilder.com">support@englishprobuilder.com</a>
+                    </li>
+                    <li>
+                        <strong>Alamat Kantor (Opsional, jika ada):</strong>
+                        Jl. Fiktif No. 123, Kota Contoh, Negara Anda
+                    </li>
+                </ul>
+            </section>
+
+            <section class="module-section">
+                <h3>Hubungi Kami di Media Sosial</h3>
+                <p>Anda juga bisa menemukan kami di platform media sosial. Ikuti kami untuk update terbaru dan tips belajar bahasa Inggris!</p>
+                <div class="social-media-links">
+                    <ul>
+                        <li><a href="#" target="_blank">Facebook</a></li>
+                        <li><a href="#" target="_blank">Twitter (X)</a></li>
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                        </ul>
+                </div>
+                <p class="section-description" style="margin-top: var(--spacing-m);">
+                    Kami akan berusaha membalas pesan Anda sesegera mungkin. Terima kasih telah menggunakan English Pro-Builder!
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> English Pro-Builder. Hak Cipta Dilindungi Undang-Undang.</p>
+            <ul class="footer-nav">
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="contact.html" class="current">Kontak</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // JavaScript kecil untuk memperbarui tahun di footer secara otomatis
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
