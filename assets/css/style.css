@@ -1,37 +1,30 @@
 /* assets/css/style.css */
 
 /* --- ROOT VARIABLES (Variabel CSS Global) --- */
-/* Mendefinisikan palet warna yang modern dan lembut, serta properti dasar lainnya.
-   Menggunakan variabel memudahkan pengelolaan dan perubahan tema di masa depan. */
+/* Mendefinisikan warna utama dan properti dasar lainnya dalam variabel.
+   Ini membuat perubahan tema atau warna jauh lebih mudah di masa depan. */
 :root {
-    /* Palet Warna Utama (Modern & Soft) */
-    --primary-soft-blue: #A3D9FF;     /* Biru langit lembut, menenangkan, untuk header/utama */
-    --darker-soft-blue: #70B8E3;      /* Biru sedikit lebih gelap untuk hover/aksen utama */
-    --accent-soft-green: #90EE90;     /* Hijau pastel yang menyegarkan, untuk tombol/highlight */
-    --darker-soft-green: #6BBF6B;     /* Hijau sedikit lebih gelap untuk hover aksen */
-    
-    /* Warna Netral (Latar Belakang & Teks) */
-    --bg-lightest: #F5F7F8;           /* Latar belakang paling terang, hampir putih */
-    --bg-light: #E0EBF5;              /* Latar belakang section atau kartu yang lembut */
-    --text-dark-soft: #364F6B;        /* Teks gelap namun tidak terlalu kontras, dari keluarga biru-abu */
-    --text-medium-soft: #6A8BAE;      /* Teks sedang, untuk deskripsi */
-    --border-soft: #CCD9E6;           /* Warna border yang sangat lembut */
+    /* Palet Warna Utama */
+    --primary-blue: #3498db;     /* Biru utama, cerah namun lembut */
+    --dark-blue: #2980b9;       /* Biru lebih gelap untuk hover/aksen */
+    --accent-green: #2ecc71;    /* Hijau aksen, cerah dan menyegarkan */
+    --dark-green: #27ae60;      /* Hijau lebih gelap untuk hover */
+    --neutral-gray: #ecf0f1;    /* Abu-abu terang untuk latar belakang lembut */
+    --light-gray: #f9fbfb;      /* Sangat terang, cocok untuk kartu/elemen putih */
+    --text-dark: #34495e;       /* Teks utama, abu-abu gelap kebiruan */
+    --text-medium: #7f8c8d;     /* Teks sekunder, abu-abu sedang */
+    --border-light: #dfe6e9;    /* Warna border ringan */
+    --error-red: #e74c3c;       /* Merah untuk feedback error */
+    --success-green: #27ae60;   /* Hijau untuk feedback sukses */
 
-    /* Warna Feedback (Tetap Jelas tapi Nuansa Lembut) */
-    --feedback-success-bg: #D4EDDA;   /* Latar hijau sukses yang sudah baik */
-    --feedback-success-text: #155724; /* Teks hijau sukses */
-    --feedback-error-bg: #F8D7DA;     /* Latar merah error yang lembut */
-    --feedback-error-text: #721C24;   /* Teks merah error */
-
-    /* Properti Umum (dengan penyesuaian untuk kesan 'smooth' dan 'modern') */
-    --border-radius-soft: 12px;       /* Sudut membulat standar, sedikit lebih besar untuk kelembutan */
-    --shadow-soft-light: 0 6px 20px rgba(0, 0, 0, 0.08); /* Bayangan yang lebih menyebar dan lembut */
-    --shadow-soft-hover: 0 10px 25px rgba(0, 0, 0, 0.12); /* Bayangan saat hover lebih dalam */
-    --transition-duration: 0.4s;      /* Durasi transisi lebih panjang untuk efek 'smooth' */
-    --transition-timing: ease-in-out; /* Fungsi timing yang umum untuk animasi halus */
+    /* Properti Umum */
+    --border-radius: 8px;       /* Sudut membulat standar untuk elemen */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* Bayangan lembut untuk kedalaman */
+    --transition-speed: 0.3s;   /* Kecepatan transisi default untuk animasi halus */
 }
 
 /* --- RESET CSS --- */
+/* Mengatur ulang margin, padding, dan box-sizing untuk konsistensi di berbagai browser. */
 * {
     margin: 0;
     padding: 0;
@@ -40,242 +33,246 @@
 
 /* --- BASE STYLES (Gaya Dasar untuk Seluruh Halaman) --- */
 body {
-    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.7; /* Ketinggian baris sedikit lebih longgar untuk keterbacaan */
-    color: var(--text-dark-soft); /* Menggunakan warna teks gelap lembut */
-    background-color: var(--bg-lightest); /* Latar belakang paling terang */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; /* Pilihan font yang modern dan mudah dibaca */
+    line-height: 1.6; /* Ketinggian baris untuk keterbacaan paragraf yang lebih baik */
+    color: var(--text-dark); /* Warna teks utama dari variabel */
+    background-color: var(--neutral-gray); /* Warna latar belakang halaman dari variabel */
+    display: flex; /* Menggunakan Flexbox untuk menata elemen utama (header, main, footer) */
+    flex-direction: column; /* Mengatur elemen utama dalam satu kolom */
+    min-height: 100vh; /* Memastikan body mengisi setidaknya seluruh tinggi viewport */
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
 }
 
-/* CONTAINER: Kelas utilitas untuk membatasi lebar konten. */
+/* CONTAINER: Kelas utilitas untuk membatasi lebar konten dan memusatkannya. */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px; /* Padding samping sedikit lebih besar */
+    max-width: 1200px; /* Lebar maksimum kontainer untuk desktop */
+    margin: 0 auto; /* Otomatis memusatkan kontainer secara horizontal */
+    padding: 0 25px; /* Padding samping untuk mencegah konten menempel di tepi layar */
 }
 
 /* --- HEADER (Bagian Atas Situs) --- */
 .main-header {
-    background-color: var(--primary-soft-blue); /* Biru lembut utama untuk header */
-    color: #fff;
-    padding: 25px 0; /* Padding vertikal lebih besar */
-    box-shadow: var(--shadow-soft-light); /* Bayangan lembut */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-color: var(--primary-blue); /* Warna latar belakang header dari variabel */
+    color: #fff; /* Warna teks di header (putih) */
+    padding: 20px 0; /* Padding vertikal di dalam header */
+    box-shadow: var(--shadow-light); /* Efek bayangan lembut untuk memberikan kedalaman */
+    position: sticky; /* Membuat header tetap di atas saat scroll */
+    top: 0; /* Menempel di bagian atas */
+    z-index: 1000; /* Memastikan header berada di atas elemen lain saat scroll */
 }
 
 .site-title {
-    font-size: 2.8em; /* Ukuran font judul situs lebih besar */
-    margin: 0;
-    text-align: center;
-    letter-spacing: 2px; /* Jarak antar huruf lebih longgar */
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.25); /* Bayangan teks lebih jelas */
+    font-size: 2.5em; /* Ukuran font judul situs lebih besar */
+    margin: 0; /* Menghapus margin default h1 */
+    text-align: center; /* Memusatkan teks judul */
+    letter-spacing: 1.5px; /* Jarak antar huruf untuk estetika */
+    font-weight: 700; /* Font lebih tebal */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Bayangan teks yang lebih jelas */
 }
 
 /* --- NAVIGATION (Navigasi Utama) --- */
 .main-nav {
-    margin-top: 25px; /* Jarak dari judul situs */
-    text-align: center;
+    margin-top: 20px; /* Jarak antara judul situs dan navigasi */
+    text-align: center; /* Memusatkan menu navigasi */
 }
 
 .nav-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    list-style: none; /* Menghapus bullet point default dari list */
+    padding: 0; /* Menghapus padding default list */
+    display: flex; /* Menggunakan Flexbox untuk menata item navigasi secara horizontal */
+    justify-content: center; /* Memusatkan item navigasi secara horizontal */
+    flex-wrap: wrap; /* Memungkinkan item navigasi untuk wrap ke baris baru jika layar terlalu kecil */
 }
 
 .nav-item {
-    margin: 0 20px; /* Jarak antar item navigasi lebih besar */
+    margin: 0 18px; /* Jarak horizontal antar item navigasi lebih besar */
 }
 
 .nav-link {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.2em; /* Ukuran font link lebih besar */
-    padding: 10px 0; /* Padding lebih besar */
-    position: relative;
-    transition: color var(--transition-duration) var(--transition-timing);
+    color: #fff; /* Warna teks link navigasi (putih) */
+    text-decoration: none; /* Menghapus garis bawah default link */
+    font-weight: 500; /* Ketebalan font */
+    font-size: 1.15em; /* Ukuran font link sedikit lebih besar */
+    padding: 8px 0; /* Padding vertikal untuk area klik yang lebih besar */
+    position: relative; /* Penting untuk posisi pseudo-element underline */
+    transition: color var(--transition-speed) ease-in-out; /* Transisi warna teks yang halus saat hover */
 }
 
+/* Pseudo-element untuk efek underline animasi saat hover */
 .nav-link::after {
     content: '';
     position: absolute;
-    width: 0;
-    height: 3px;
-    background-color: var(--accent-soft-green); /* Warna underline hijau lembut */
+    width: 0; /* Awalnya lebar 0, sehingga tidak terlihat */
+    height: 3px; /* Tinggi underline lebih tebal */
+    background-color: var(--accent-green); /* Warna underline dari variabel (hijau aksen) */
     left: 0;
     bottom: 0;
-    transition: width var(--transition-duration) var(--transition-timing);
+    transition: width var(--transition-speed) ease-out; /* Transisi lebar halus */
 }
 
+/* Efek saat link di-hover atau merupakan halaman aktif (kelas 'current') */
 .nav-link:hover::after,
 .nav-link.current::after {
-    width: 100%;
+    width: 100%; /* Lebar penuh saat di-hover atau aktif, menciptakan efek underline */
 }
 
 .nav-link.current {
-    color: var(--accent-soft-green); /* Warna teks link aktif hijau lembut */
+    color: var(--accent-green); /* Warna teks link aktif */
 }
 
 /* --- MAIN CONTENT (Konten Utama) --- */
 .main-content {
-    flex-grow: 1;
-    padding: 70px 0; /* Padding vertikal lebih besar */
-    animation: fadeIn var(--transition-duration) var(--transition-timing);
+    flex-grow: 1; /* Memastikan bagian main content mengambil semua ruang vertikal yang tersedia */
+    padding: 60px 0; /* Padding vertikal untuk memisahkan konten dari header/footer, lebih besar */
+    animation: fadeIn var(--transition-speed) ease-in-out; /* Animasi fade-in halus saat halaman dimuat */
 }
 
+/* Keyframes untuk animasi fade-in */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); } /* Mulai lebih jauh ke bawah */
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Judul Bagian di dalam main content (misal: "Tingkatkan Kemampuan Bahasa Inggrismu") */
 .section-title {
-    font-size: 2.8em; /* Ukuran judul bagian lebih besar */
-    color: var(--darker-soft-blue); /* Warna judul bagian biru lebih gelap */
-    text-align: center;
-    margin-bottom: 35px; /* Jarak bawah lebih besar */
-    position: relative;
-    padding-bottom: 18px; /* Padding bawah lebih besar */
+    font-size: 2.5em; /* Ukuran font judul bagian lebih besar */
+    color: var(--dark-blue); /* Warna judul dari variabel */
+    text-align: center; /* Memusatkan teks judul */
+    margin-bottom: 30px; /* Jarak bawah dari judul, lebih besar */
+    position: relative; /* Penting untuk posisi underline dekoratif */
+    padding-bottom: 15px; /* Padding bawah untuk jarak underline */
     font-weight: 700;
 }
 
+/* Underline dekoratif untuk judul bagian */
 .section-title::after {
     content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 120px; /* Lebar underline lebih panjang */
-    height: 5px; /* Tinggi underline lebih tebal */
-    background-color: var(--darker-soft-green); /* Warna underline hijau lebih gelap */
-    border-radius: 3px;
+    left: 50%; /* Pusatkan secara horizontal */
+    transform: translateX(-50%); /* Penyesuaian untuk pemusatan yang akurat */
+    bottom: 0; /* Posisi di bagian bawah judul */
+    width: 100px; /* Lebar underline lebih panjang */
+    height: 4px; /* Tinggi underline lebih tebal */
+    background-color: var(--accent-green); /* Warna underline dari variabel */
+    border-radius: 2px;
 }
 
 .section-description, .call-to-action {
-    font-size: 1.2em; /* Ukuran font deskripsi lebih besar */
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto 35px auto; /* Margin bawah lebih besar */
-    color: var(--text-medium-soft); /* Warna teks sedang lembut */
+    font-size: 1.15em; /* Ukuran font untuk deskripsi dan CTA sedikit lebih besar */
+    text-align: center; /* Memusatkan teks */
+    max-width: 900px; /* Lebar maksimum teks agar lebih nyaman dibaca */
+    margin: 0 auto 30px auto; /* Memusatkan paragraf dan memberi margin bawah lebih besar */
+    color: var(--text-medium); /* Warna teks abu-abu sedang dari variabel */
 }
 
 /* --- BUTTONS (Tombol) --- */
 .btn {
-    display: inline-block;
-    padding: 15px 35px; /* Padding tombol lebih besar */
-    border-radius: var(--border-radius-soft); /* Sudut membulat dari variabel */
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.15em; /* Ukuran font tombol sedikit lebih besar */
-    cursor: pointer;
-    border: none;
-    transition: all var(--transition-duration) var(--transition-timing);
-    box-shadow: var(--shadow-soft-light); /* Bayangan lembut */
+    display: inline-block; /* Agar bisa diberi padding dan margin */
+    padding: 14px 30px; /* Padding di dalam tombol lebih besar */
+    border-radius: var(--border-radius); /* Sudut tombol melengkung dari variabel */
+    text-decoration: none; /* Menghapus garis bawah default link */
+    font-weight: 600; /* Teks tombol lebih tebal */
+    font-size: 1.1em; /* Ukuran font tombol */
+    cursor: pointer; /* Mengubah kursor menjadi pointer saat di atas tombol */
+    border: none; /* Menghapus border default tombol */
+    transition: all var(--transition-speed) ease-in-out; /* Animasi halus untuk semua properti */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Bayangan lembut untuk tombol */
 }
 
 .btn-primary {
-    background-color: var(--accent-soft-green); /* Warna hijau lembut */
-    color: #fff;
-    margin-top: 30px; /* Jarak dari elemen di atasnya */
-    display: block;
-    width: fit-content;
+    background-color: var(--accent-green); /* Warna hijau cerah dari variabel */
+    color: #fff; /* Warna teks putih */
+    margin-top: 25px; /* Jarak dari elemen di atasnya */
+    display: block; /* Mengambil lebar penuh parent di mobile */
+    width: fit-content; /* Lebar tombol menyesuaikan konten teks */
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; /* Memusatkan tombol */
 }
 
 .btn-primary:hover {
-    background-color: var(--darker-soft-green); /* Warna hijau lebih gelap saat hover */
-    transform: translateY(-5px) scale(1.03); /* Efek naik dan membesar lebih dramatis */
-    box-shadow: var(--shadow-soft-hover); /* Bayangan lebih dalam saat hover */
+    background-color: var(--dark-green); /* Warna hijau lebih gelap saat hover */
+    transform: translateY(-3px) scale(1.02); /* Efek tombol sedikit naik dan membesar */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Bayangan lebih gelap saat hover */
 }
 
 .btn-secondary {
-    background-color: var(--text-medium-soft); /* Warna abu-abu sedang */
-    color: #fff;
+    background-color: var(--text-medium); /* Warna abu-abu netral dari variabel */
+    color: #fff; /* Warna teks putih */
 }
 
 .btn-secondary:hover {
-    background-color: #5A6268; /* Sedikit lebih gelap dari text-medium-soft */
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: var(--shadow-soft-hover);
+    background-color: #667078; /* Warna abu-abu lebih gelap saat hover */
+    transform: translateY(-3px) scale(1.02); /* Efek tombol sedikit naik dan membesar */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 /* --- LEVEL CARDS GRID (Grid Kartu Level Pembelajaran) --- */
 .level-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Minwidth sedikit lebih besar */
-    gap: 40px; /* Jarak antar kartu lebih besar */
-    margin-top: 60px; /* Jarak dari bagian di atasnya lebih besar */
+    display: grid; /* Menggunakan CSS Grid untuk tata letak kartu */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Kolom adaptif */
+    gap: 35px; /* Jarak antar kartu (grid gap) lebih besar */
+    margin-top: 50px; /* Jarak dari bagian di atasnya lebih besar */
 }
 
 .level-card {
-    background-color: var(--card-bg-soft); /* Latar belakang kartu dari variabel */
-    border-radius: var(--border-radius-soft);
-    box-shadow: var(--shadow-soft-light);
-    padding: 40px; /* Padding kartu lebih besar */
+    background-color: var(--light-gray); /* Latar belakang kartu dari variabel */
+    border-radius: var(--border-radius); /* Sudut kartu melengkung dari variabel */
+    box-shadow: var(--shadow-light); /* Bayangan lembut dari variabel */
+    padding: 35px; /* Padding di dalam kartu lebih besar */
     text-align: center;
-    transition: all var(--transition-duration) var(--transition-timing);
-    display: flex;
+    transition: all var(--transition-speed) ease-in-out; /* Animasi halus saat hover */
+    display: flex; /* Menggunakan Flexbox untuk menata konten di dalam kartu */
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid var(--border-soft); /* Border sangat lembut */
 }
 
 .level-card:hover {
-    transform: translateY(-10px); /* Efek kartu naik lebih jauh */
-    box-shadow: var(--shadow-soft-hover);
+    transform: translateY(-8px); /* Efek kartu naik lebih jauh saat hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Bayangan lebih gelap dan menyebar saat hover */
 }
 
 .level-card-title {
-    font-size: 2em; /* Ukuran judul kartu lebih besar */
-    color: var(--darker-soft-blue);
-    margin-bottom: 15px;
+    font-size: 1.8em; /* Ukuran font judul kartu lebih besar */
+    color: var(--primary-blue); /* Warna judul kartu dari variabel */
+    margin-bottom: 12px;
     font-weight: 600;
 }
 
 .level-card-description {
-    font-size: 1.1em; /* Ukuran deskripsi lebih besar */
-    color: var(--text-medium-soft);
-    margin-bottom: 35px; /* Margin bawah lebih besar */
-    flex-grow: 1;
+    font-size: 1.05em; /* Ukuran font deskripsi sedikit lebih besar */
+    color: var(--text-medium); /* Warna teks deskripsi dari variabel */
+    margin-bottom: 30px; /* Jarak bawah dari deskripsi lebih besar */
+    flex-grow: 1; /* Memastikan deskripsi mengisi ruang yang tersedia di kartu */
 }
 
 /* --- FOOTER (Bagian Bawah Situs) --- */
 .main-footer {
-    background-color: var(--text-dark-soft); /* Warna footer dari variabel teks gelap */
-    color: #fff;
-    padding: 30px 0; /* Padding vertikal lebih besar */
+    background-color: var(--text-dark); /* Warna latar belakang footer dari variabel */
+    color: #fff; /* Warna teks di footer (putih) */
+    padding: 25px 0; /* Padding vertikal lebih besar */
     text-align: center;
-    margin-top: auto;
-    box-shadow: 0 -3px 8px rgba(0,0,0,0.1); /* Bayangan di atas footer lebih jelas */
+    margin-top: auto; /* Mendorong footer ke bagian paling bawah halaman */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Bayangan di atas footer */
 }
 
 .footer-nav {
     list-style: none;
     padding: 0;
-    margin-top: 20px; /* Jarak dari teks hak cipta */
+    margin-top: 15px; /* Jarak dari teks hak cipta */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .footer-nav li {
-    margin: 0 15px; /* Jarak antar item navigasi footer */
+    margin: 0 12px; /* Jarak antar item navigasi footer */
 }
 
 .footer-nav a {
-    color: #C0C5CC; /* Warna link di footer lebih lembut */
+    color: #bbb; /* Warna link di footer (abu-abu muda) */
     text-decoration: none;
-    font-size: 1em;
-    transition: color var(--transition-duration) var(--transition-timing);
+    font-size: 0.95em;
+    transition: color var(--transition-speed) ease-in-out;
 }
 
 .footer-nav a:hover {
@@ -285,376 +282,370 @@ body {
 /* --- GLOBAL MODULE PAGE STYLES --- */
 /* Gaya umum yang berlaku untuk semua halaman modul */
 .module-page .section-title {
-    color: var(--darker-soft-green); /* Warna judul section di halaman modul */
+    color: var(--accent-green); /* Warna judul section di halaman modul */
 }
 .module-page .section-title::after {
-    background-color: var(--accent-soft-green); /* Warna underline di halaman modul */
+    background-color: var(--dark-green); /* Warna underline di halaman modul */
 }
 
 .module-section {
-    background-color: var(--card-bg-soft);
-    padding: 35px; /* Padding lebih besar */
-    border-radius: var(--border-radius-soft);
-    box-shadow: var(--shadow-soft-light);
-    margin-bottom: 35px; /* Jarak antar section modul */
-    border: 1px solid var(--border-soft);
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    margin-bottom: 30px; /* Jarak antar section modul */
+    border: 1px solid var(--border-light); /* Border halus */
 }
 
 .module-section h3 {
-    font-size: 2em; /* Ukuran h3 lebih besar */
-    color: var(--darker-soft-blue);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--darker-soft-blue);
-    font-weight: 600;
+    font-size: 1.8em;
+    color: var(--dark-blue);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary-blue);
 }
 
 .module-section h4 {
-    font-size: 1.5em; /* Ukuran h4 lebih besar */
-    color: var(--accent-soft-green);
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.module-section p {
-    margin-bottom: 18px; /* Jarak paragraf lebih besar */
-    color: var(--text-dark-soft);
-}
-
-.module-section ul, .module-section ol {
-    margin: 0 0 18px 30px; /* Margin list lebih besar */
-    color: var(--text-dark-soft);
-    line-height: 1.8; /* Ketinggian baris list lebih longgar */
-}
-
-.module-section li {
+    font-size: 1.4em;
+    color: var(--accent-green);
+    margin-top: 25px;
     margin-bottom: 10px;
 }
 
+.module-section p {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.module-section ul, .module-section ol {
+    margin: 0 0 15px 25px;
+    color: var(--text-dark);
+}
+
+.module-section li {
+    margin-bottom: 8px;
+}
+
 .module-section strong {
-    color: var(--darker-soft-blue);
+    color: var(--dark-blue);
 }
 
 
-/* --- KUIS GLOBAL STYLES (Disesuaikan untuk Palet Soft) --- */
+/* --- KUIS GLOBAL STYLES (Dipindahkan/Disesuaikan dari Modul 1/5) --- */
 .quiz-container {
-    background-color: var(--bg-light); /* Latar belakang kuis yang lembut */
-    padding: 35px; /* Padding lebih besar */
-    border-radius: var(--border-radius-soft);
-    margin-top: 45px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-soft-light);
+    background-color: #f0fdf0; /* Latar belakang hijau sangat muda */
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-top: 40px;
+    border: 1px solid #d9f7d9;
+    box-shadow: var(--shadow-light);
 }
 .quiz-question {
-    font-size: 1.4em;
-    margin-bottom: 30px;
-    color: var(--darker-soft-green); /* Warna pertanyaan kuis hijau gelap lembut */
+    font-size: 1.35em;
+    margin-bottom: 25px;
+    color: var(--dark-green); /* Warna teks pertanyaan kuis */
     font-weight: bold;
     text-align: center;
-    padding: 15px;
-    border-bottom: 1px solid var(--border-soft);
+    padding: 10px;
+    border-bottom: 1px solid #e0f0e0;
 }
 .quiz-options {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Jarak antar tombol opsi lebih besar */
-    margin-top: 25px;
+    gap: 15px; /* Jarak antar tombol opsi */
+    margin-top: 20px;
 }
 .quiz-options button {
-    flex: 1 1 calc(50% - 20px); /* Disesuaikan dengan gap baru */
-    max-width: 280px; /* Lebar maksimum tombol opsi lebih besar */
-    padding: 16px 25px; /* Padding tombol lebih besar */
-    background-color: var(--primary-soft-blue);
-    color: #fff;
+    flex: 1 1 calc(50% - 15px);
+    max-width: 250px; /* Lebar maksimum tombol opsi sedikit lebih besar */
+    padding: 15px 20px;
+    background-color: var(--primary-blue);
+    color: white;
     border: none;
-    border-radius: var(--border-radius-soft);
+    border-radius: var(--border-radius);
     cursor: pointer;
-    font-size: 1.15em;
+    font-size: 1.1em;
     font-weight: bold;
-    transition: all var(--transition-duration) var(--transition-timing);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Bayangan lebih jelas */
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 .quiz-options button:hover:not([disabled]) {
-    background-color: var(--darker-soft-blue);
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    background-color: var(--dark-blue);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 .quiz-options button:disabled {
-    opacity: 0.6;
+    opacity: 0.6; /* Sedikit transparan saat dinonaktifkan */
     cursor: not-allowed;
-    background-color: #D3DCE4; /* Warna abu-abu lebih lembut saat disabled */
-    transform: none;
+    background-color: #ccc; /* Warna abu-abu saat dinonaktifkan */
+    transform: none; /* Hapus efek hover saat disabled */
     box-shadow: none;
 }
 .quiz-feedback {
-    margin-top: 30px;
-    padding: 20px;
-    border-radius: var(--border-radius-soft);
+    margin-top: 25px; /* Jarak dari opsi */
+    padding: 18px; /* Padding lebih besar */
+    border-radius: var(--border-radius);
     text-align: center;
     font-weight: bold;
-    font-size: 1.3em; /* Ukuran font feedback lebih besar */
-    opacity: 0;
-    transform: translateY(20px); /* Animasi muncul dari bawah lebih dramatis */
-    transition: opacity 0.6s var(--transition-timing), transform 0.6s var(--transition-timing); /* Transisi lebih panjang */
+    font-size: 1.2em; /* Ukuran font feedback lebih besar */
+    opacity: 0; /* Awalnya tersembunyi */
+    transform: translateY(15px); /* Animasi muncul dari bawah */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi muncul lebih halus */
 }
 .quiz-feedback.show {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Tampilkan saat ada kelas 'show' */
+    transform: translateY(0); /* Kembali ke posisi normal */
 }
 .quiz-feedback.correct {
-    background-color: var(--feedback-success-bg);
-    color: var(--feedback-success-text);
-    border: 1px solid var(--darker-soft-green);
+    background-color: #d4edda;
+    color: var(--success-green);
+    border: 1px solid #c3e6cb;
 }
 .quiz-feedback.incorrect {
-    background-color: var(--feedback-error-bg);
-    color: var(--feedback-error-text);
-    border: 1px solid var(--feedback-error-text);
+    background-color: #f8d7da;
+    color: var(--error-red);
+    border: 1px solid #f5c6cb;
 }
 
-/* Tombol next memiliki id yang unik per kuis, jadi list semua ID nya */
 #next-question-btn, #next-greetings-btn, #next-tobe-btn, #next-tense-btn, #next-matching-btn {
-    display: none;
-    margin-top: 30px;
-    width: 100%;
-    background-color: var(--darker-soft-blue); /* Warna tombol next biru gelap lembut */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none; /* Awalnya tersembunyi */
+    margin-top: 25px;
+    width: 100%; /* Tombol next mengambil lebar penuh */
+    background-color: var(--dark-blue); /* Warna tombol next */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 #next-question-btn:hover, #next-greetings-btn:hover, #next-tobe-btn:hover, #next-tense-btn:hover, #next-matching-btn:hover {
-    background-color: var(--primary-soft-blue);
-    transform: translateY(-4px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    background-color: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 
 /* --- Tambahan CSS untuk Kuis Mencocokkan (dari vocabulary.js) --- */
 .matching-options {
     display: flex;
-    flex-direction: column;
-    gap: 15px; /* Jarak antar item mencocokkan lebih besar */
-    padding: 20px; /* Padding lebih besar */
-    border: 1px dashed var(--border-soft);
-    border-radius: var(--border-radius-soft);
-    min-height: 250px; /* Tinggi minimum lebih besar */
-    background-color: var(--bg-light); /* Latar belakang lembut */
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    flex-direction: column; /* Opsi disusun vertikal */
+    gap: 12px; /* Jarak antar item mencocokkan */
+    padding: 15px;
+    border: 1px dashed var(--border-light);
+    border-radius: var(--border-radius);
+    min-height: 200px;
+    background-color: var(--neutral-gray);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Bayangan dalam untuk efek cekung */
 }
 
 #matching-quiz-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px; /* Jarak antar kolom lebih besar */
-    margin-top: 25px;
+    grid-template-columns: 1fr 1fr; /* Dua kolom untuk EN dan ID */
+    gap: 25px; /* Jarak antar kolom lebih besar */
+    margin-top: 20px;
 }
 
 .matching-item {
-    background-color: #fff; /* Latar belakang putih untuk item */
-    padding: 15px 20px;
-    border: 1px solid var(--border-soft);
-    border-radius: var(--border-radius-soft);
+    background-color: #fff;
+    padding: 12px 18px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
     cursor: pointer;
-    font-size: 1.15em;
+    font-size: 1.1em;
     font-weight: 500;
-    transition: all var(--transition-duration) var(--transition-timing);
+    transition: all var(--transition-speed) ease;
     text-align: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 }
 
 .matching-item:hover:not([disabled]) {
-    background-color: #F0F6FC; /* Warna latar belakang sangat lembut saat hover */
-    border-color: var(--primary-soft-blue);
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    background-color: #f0f8ff; /* Warna latar belakang lebih terang saat hover */
+    border-color: var(--primary-blue);
+    transform: translateY(-3px) scale(1.01); /* Efek naik dan sedikit membesar */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
 .matching-item.selected {
-    background-color: var(--primary-soft-blue);
+    background-color: var(--primary-blue);
     color: white;
-    border-color: var(--darker-soft-blue);
-    box-shadow: 0 0 10px rgba(163,217,255,0.8); /* Glow biru lebih menonjol */
-    transform: scale(1.06);
+    border-color: var(--dark-blue);
+    box-shadow: 0 0 8px rgba(0,123,255,0.6); /* Bayangan glow saat terpilih */
+    transform: scale(1.05); /* Sedikit membesar saat terpilih */
 }
 
 .matching-item.matched {
-    background-color: var(--accent-soft-green);
+    background-color: var(--accent-green); /* Hijau saat cocok */
     color: white;
-    border-color: var(--darker-soft-green);
+    border-color: var(--dark-green);
     cursor: not-allowed;
-    opacity: 0.9;
-    transform: none;
-    box-shadow: none;
+    opacity: 0.9; /* Sedikit transparan */
+    transform: none; /* Hapus efek transform */
+    box-shadow: none; /* Hapus bayangan */
 }
 
 /* --- ITEM DISPLAY UNTUK MODUL ALPHABET & NUMBERS (Dari Modul 1) --- */
 .item {
-    background-color: var(--bg-light); /* Latar belakang item dari variabel */
-    padding: 20px 15px; /* Padding lebih besar */
-    border-radius: var(--border-radius-soft);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+    background-color: var(--light-gray);
+    padding: 18px 12px; /* Padding lebih besar */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06); /* Bayangan lebih lembut */
     text-align: center;
-    font-size: 2.5em; /* Ukuran font lebih besar */
+    font-size: 2.2em; /* Ukuran font lebih besar */
     font-weight: bold;
-    color: var(--darker-soft-blue);
-    transition: all var(--transition-duration) var(--transition-timing);
+    color: var(--dark-blue);
+    transition: all var(--transition-speed) ease; /* Animasi hover */
     cursor: default;
-    border: 1px solid var(--border-soft);
+    border: 1px solid var(--border-light);
 }
 .item:hover {
-    transform: translateY(-5px) scale(1.03); /* Efek naik dan membesar lebih dramatis */
-    background-color: #E6F0F8; /* Perubahan warna latar belakang saat hover lebih lembut */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: translateY(-4px) scale(1.02); /* Efek naik lebih jauh dan sedikit membesar saat hover */
+    background-color: #e6f7ff; /* Perubahan warna latar belakang saat hover */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 .item small {
-    font-size: 0.8em;
-    color: var(--text-medium-soft);
-    margin-top: 10px;
+    font-size: 0.75em;
+    color: var(--text-medium);
+    margin-top: 8px;
 }
 
 /* --- KOTAK DIALOG (Dari Modul 2) --- */
 .dialogue-box {
-    background-color: var(--bg-light);
-    border-left: 8px solid var(--darker-soft-blue); /* Garis biru lebih tebal */
-    padding: 25px 30px; /* Padding lebih besar */
-    margin-bottom: 35px;
-    border-radius: var(--border-radius-soft);
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    background-color: var(--light-gray);
+    border-left: 6px solid var(--primary-blue); /* Garis biru lebih tebal */
+    padding: 20px 25px; /* Padding lebih besar */
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Bayangan dalam */
 }
 .dialogue-line {
-    margin-bottom: 12px;
-    font-size: 1.1em;
-    color: var(--text-dark-soft);
+    margin-bottom: 10px; /* Jarak antar baris dialog lebih besar */
+    font-size: 1.05em;
+    color: var(--text-dark);
 }
 .dialogue-line strong {
-    color: var(--darker-soft-blue);
+    color: var(--dark-blue);
 }
 
 /* --- TABEL GRAMMAR (Dari Modul 3) --- */
 .grammar-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 35px;
-    box-shadow: var(--shadow-soft-light);
-    border-radius: var(--border-radius-soft);
-    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-light); /* Bayangan pada tabel */
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Penting untuk border-radius pada tabel */
 }
 .grammar-table th, .grammar-table td {
-    border: 1px solid var(--border-soft);
-    padding: 18px 22px; /* Padding lebih besar */
+    border: 1px solid var(--border-light);
+    padding: 15px 20px; /* Padding lebih besar */
     text-align: left;
-    color: var(--text-dark-soft); /* Warna teks tabel */
 }
 .grammar-table th {
-    background-color: var(--darker-soft-blue);
+    background-color: var(--primary-blue);
     color: white;
     font-weight: bold;
-    font-size: 1.15em; /* Ukuran font header tabel lebih besar */
+    font-size: 1.1em;
 }
 .grammar-table tr:nth-child(even) {
-    background-color: var(--bg-lightest); /* Warna latar belakang baris genap lebih lembut */
+    background-color: #f8fbfb; /* Warna latar belakang baris genap lebih lembut */
 }
 .grammar-table tr:hover {
-    background-color: #E8F2F9; /* Efek hover pada baris tabel lebih lembut */
-    box-shadow: 0 3px 8px rgba(0,0,0,0.03); /* Bayangan sangat lembut saat hover */
+    background-color: #e6f7ff; /* Efek hover pada baris tabel */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Bayangan lembut saat hover */
 }
 
 /* --- KONSEP GRAMMAR & CONTOH (Dari Modul 5) --- */
 .grammar-concept {
-    background-color: var(--bg-light);
-    border-left: 8px solid var(--darker-soft-blue);
-    padding: 25px 30px;
-    margin-bottom: 35px;
-    border-radius: var(--border-radius-soft);
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    background-color: #f7f9fc;
+    border-left: 6px solid var(--dark-blue); /* Garis biru lebih tebal */
+    padding: 20px 25px; /* Padding lebih besar */
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 .grammar-concept h4 {
-    color: var(--darker-soft-blue);
-    margin-bottom: 15px;
-    font-size: 1.45em;
+    color: var(--dark-blue);
+    margin-bottom: 12px;
+    font-size: 1.3em;
 }
 .grammar-concept ul {
     list-style: inside disc;
-    margin-left: 30px;
-    color: var(--text-dark-soft);
-    line-height: 1.8;
+    margin-left: 25px;
+    color: var(--text-dark);
 }
 .grammar-concept li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 .grammar-concept li strong {
-    color: var(--darker-soft-blue);
+    color: var(--primary-blue); /* Warna penekanan di list */
 }
 
 .grammar-example {
-    background-color: #E7F6E7; /* Warna latar belakang hijau sangat lembut */
-    padding: 25px 30px;
-    border-radius: var(--border-radius-soft);
-    margin-top: 25px;
-    border: 1px dashed var(--accent-soft-green);
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    background-color: #e8f5e9;
+    padding: 20px 25px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    border: 1px dashed #c8e6cb;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 .grammar-example p {
-    margin-bottom: 10px;
-    color: var(--darker-soft-green); /* Warna teks contoh hijau gelap lembut */
+    margin-bottom: 8px;
+    color: var(--dark-green); /* Warna teks contoh */
 }
 .grammar-example p strong {
-    color: var(--darker-soft-blue);
+    color: var(--dark-blue);
 }
 
 /* --- KATEGORI KOSAKATA (Dari Modul 4) --- */
 .vocab-category {
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 .vocab-category h4 {
-    font-size: 1.7em;
-    color: var(--darker-soft-blue);
-    margin-bottom: 25px;
-    border-bottom: 2px solid var(--primary-soft-blue);
-    padding-bottom: 10px;
+    font-size: 1.6em; /* Ukuran h4 lebih besar */
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 8px;
 }
 .vocab-list {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px; /* Jarak antar item lebih besar */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Minmax lebih besar */
+    gap: 20px; /* Jarak antar item lebih besar */
 }
 .vocab-item {
-    background-color: var(--card-bg-soft);
-    padding: 25px;
-    border-radius: var(--border-radius-soft);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-left: 8px solid var(--accent-soft-green); /* Garis hijau lebih tebal */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    border-left: 6px solid var(--accent-green); /* Garis hijau lebih tebal */
     display: flex;
     flex-direction: column;
-    transition: all var(--transition-duration) var(--transition-timing);
+    transition: all var(--transition-speed) ease;
 }
 .vocab-item:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 }
 .vocab-word {
-    font-size: 1.8em; /* Ukuran kata Inggris lebih besar */
+    font-size: 1.6em; /* Ukuran kata Inggris lebih besar */
     font-weight: bold;
-    color: var(--darker-soft-green);
-    margin-bottom: 10px;
+    color: var(--dark-green);
+    margin-bottom: 8px;
 }
 .vocab-translation {
     font-style: italic;
-    color: var(--text-medium-soft);
-    margin-bottom: 15px;
-    font-size: 1em;
+    color: var(--text-medium);
+    margin-bottom: 12px;
+    font-size: 0.95em;
 }
 .vocab-example {
-    font-size: 0.95em;
-    color: var(--text-dark-soft);
-    border-top: 1px dashed var(--border-soft);
-    padding-top: 15px;
+    font-size: 0.9em;
+    color: var(--text-dark);
+    border-top: 1px dashed var(--border-light);
+    padding-top: 12px;
     margin-top: auto;
 }
 .vocab-example strong {
-    color: var(--darker-soft-blue);
+    color: var(--primary-blue);
 }
 
 
@@ -662,87 +653,16 @@ body {
 /* Media query untuk layar lebih kecil dari 992px (misalnya tablet besar) */
 @media (max-width: 992px) {
     .site-title {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
     .section-title {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
     .level-cards-grid {
-        gap: 30px;
+        gap: 25px;
     }
     .level-card {
-        padding: 30px;
-    }
-    .level-card-title {
-        font-size: 1.8em;
-    }
-    .level-card-description {
-        font-size: 1.05em;
-    }
-    .main-content {
-        padding: 50px 0;
-    }
-    .module-section {
-        padding: 30px;
-    }
-    .module-section h3 {
-        font-size: 1.8em;
-    }
-}
-
-/* Media query untuk layar lebih kecil dari 768px (misalnya tablet dan mobile) */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-    }
-    .site-title {
-        font-size: 2.2em;
-        letter-spacing: 1px;
-    }
-    .nav-list {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .nav-item {
-        margin: 0;
-    }
-    .nav-link {
-        font-size: 1.1em;
-        padding: 8px 0;
-    }
-    .nav-link::after {
-        height: 2px;
-    }
-
-    .section-title {
-        font-size: 2.2em;
-        margin-bottom: 25px;
-    }
-    .section-title::after {
-        width: 100px;
-        height: 4px;
-    }
-    .section-description, .call-to-action {
-        font-size: 1.1em;
-        margin-left: 15px;
-        margin-right: 15px;
-        margin-bottom: 25px;
-    }
-
-    .btn {
-        padding: 14px 30px;
-        font-size: 1.1em;
-    }
-    .btn-primary {
-        width: 95%; /* Tombol utama mengambil lebar lebih besar di mobile */
-    }
-
-    .level-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .level-card {
-        padding: 30px;
+        padding: 28px;
     }
     .level-card-title {
         font-size: 1.7em;
@@ -750,13 +670,73 @@ body {
     .level-card-description {
         font-size: 1em;
     }
+    .main-content {
+        padding: 40px 0;
+    }
+}
+
+/* Media query untuk layar lebih kecil dari 768px (misalnya tablet dan mobile) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px; /* Padding samping lebih kecil di mobile */
+    }
+    .site-title {
+        font-size: 2em;
+        letter-spacing: 1px;
+    }
+    .nav-list {
+        flex-direction: column; /* Menu navigasi bertumpuk di mobile */
+        gap: 8px; /* Jarak antar item bertumpuk */
+    }
+    .nav-item {
+        margin: 0;
+    }
+    .nav-link {
+        font-size: 1.05em;
+        padding: 5px 0;
+    }
+    .nav-link::after {
+        height: 2px; /* Underline lebih tipis di mobile */
+    }
+
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .section-description, .call-to-action {
+        font-size: 1.05em;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1.05em;
+    }
+    .btn-primary {
+        width: 90%; /* Tombol utama mengambil lebar lebih besar di mobile */
+    }
+
+    .level-cards-grid {
+        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+    }
+    .level-card {
+        padding: 25px;
+    }
+    .level-card-title {
+        font-size: 1.5em;
+    }
+    .level-card-description {
+        font-size: 0.95em;
+    }
 
     .main-footer {
         padding: 20px 0;
     }
     .footer-nav {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
     .footer-nav li {
         margin: 0;
@@ -764,109 +744,39 @@ body {
 
     /* Penyesuaian kuis di mobile */
     .quiz-question {
-        font-size: 1.3em;
-        margin-bottom: 20px;
-    }
-    .quiz-options {
-        gap: 12px;
+        font-size: 1.2em;
     }
     .quiz-options button {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* Satu kolom tombol kuis di layar sangat kecil */
         max-width: none;
-        padding: 12px 20px;
-        font-size: 1.05em;
+        padding: 10px 15px;
+        font-size: 1em;
     }
     .quiz-feedback {
-        font-size: 1.1em;
-        padding: 15px;
+        font-size: 1em;
+        padding: 12px;
     }
     
     #matching-quiz-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr; /* Satu kolom untuk kuis mencocokkan di mobile */
     }
     .matching-options {
-        min-height: auto;
-        padding: 15px;
-        gap: 10px;
-    }
-    .matching-item {
-        padding: 12px 18px;
-        font-size: 1.05em;
+        min-height: auto; /* Hapus tinggi minimum */
     }
 
     .item {
-        font-size: 2.2em;
-        padding: 18px 12px;
+        font-size: 1.8em;
+        padding: 15px 10px;
     }
     .item small {
-        font-size: 0.75em;
+        font-size: 0.7em;
     }
     .alphabet-grid, .number-grid {
-        gap: 12px;
+        gap: 10px;
     }
     
     .grammar-table th, .grammar-table td {
-        padding: 12px 15px;
-        font-size: 0.95em;
-    }
-    .dialogue-box {
-        padding: 20px 25px;
-    }
-    .grammar-concept, .grammar-example, .vocab-item {
-        padding: 20px 25px;
-    }
-}
-
-/* Media query untuk layar lebih kecil dari 480px (misalnya smartphone) */
-@media (max-width: 480px) {
-    .site-title {
-        font-size: 1.8em;
-    }
-    .section-title {
-        font-size: 1.8em;
-        margin-bottom: 20px;
-    }
-    .section-title::after {
-        width: 80px;
-    }
-    .section-description, .call-to-action {
-        font-size: 1em;
-        margin-bottom: 20px;
-    }
-    .btn {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-
-    .level-card-title {
-        font-size: 1.5em;
-    }
-    .level-card-description {
-        font-size: 0.9em;
-    }
-
-    .module-section h3 {
-        font-size: 1.6em;
-    }
-    .module-section h4 {
-        font-size: 1.3em;
-    }
-    .module-section p {
-        font-size: 0.95em;
-    }
-    .module-section ul, .module-section ol {
-        margin-left: 20px;
-        font-size: 0.95em;
-    }
-    .item {
-        font-size: 1.6em;
-        padding: 12px 8px;
-    }
-    .vocab-word {
-        font-size: 1.5em;
-    }
-    .vocab-translation {
+        padding: 10px 12px;
         font-size: 0.9em;
     }
 }
