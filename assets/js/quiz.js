@@ -258,8 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // --- DATA KUIS BARU UNTUK MODUL 9: Simple Past & Present Perfect ---
-    // ID elemen: 'past-perfect-quiz-question', 'past-perfect-quiz-options', 'past-perfect-quiz-feedback', 'next-past-perfect-btn'
+    // --- Data Kuis untuk Modul 9: Simple Past & Present Perfect ---
     const pastPerfectQuizData = [
         {
             question: "I ___ (visit) Paris last year.",
@@ -289,12 +288,11 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             question: "My keys ___ (be / find). (They are found now).",
             options: ["were found", "have been found", "are found", "had been found"],
-            correctAnswer: "have been found" // assuming present relevance
+            correctAnswer: "have been found"
         }
     ];
 
-    // --- DATA KUIS BARU UNTUK MODUL 10: Comparative & Superlative ---
-    // ID elemen: 'comparative-superlative-quiz-question', 'comparative-superlative-quiz-options', 'comparative-superlative-quiz-feedback', 'next-comparative-superlative-btn'
+    // --- Data Kuis untuk Modul 10: Comparative & Superlative ---
     const comparativeSuperlativeQuizData = [
         {
             question: "My car is ___ (fast) than yours.",
@@ -328,8 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // --- DATA KUIS BARU UNTUK MODUL 11: Passive Voice ---
-    // ID elemen: 'passive-voice-quiz-question', 'passive-voice-quiz-options', 'passive-voice-quiz-feedback', 'next-passive-voice-btn'
+    // --- Data Kuis untuk Modul 11: Passive Voice ---
     const passiveVoiceQuizData = [
         {
             question: "The car ___ (wash) every week. (Simple Present Passive)",
@@ -363,8 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // --- DATA KUIS BARU UNTUK MODUL 12: Connectors & Transitions ---
-    // ID elemen: 'connector-quiz-question', 'connector-quiz-options', 'connector-quiz-feedback', 'next-connector-btn'
+    // --- Data Kuis untuk Modul 12: Connectors & Transitions ---
     const connectorQuizData = [
         {
             question: "He likes apples ___ bananas.",
@@ -395,6 +391,131 @@ document.addEventListener('DOMContentLoaded', () => {
             question: "First, prepare the ingredients. ___, mix them together.",
             options: ["Finally", "Then", "As a result", "Because"],
             correctAnswer: "Then"
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 13: Conditional Sentences ---
+    // ID elemen: 'conditional-quiz-question', 'conditional-quiz-options', 'conditional-quiz-feedback', 'next-conditional-btn'
+    const conditionalQuizData = [
+        {
+            question: "If you ___ (heat) ice, it ___ (melt). (Type 0)",
+            options: ["heat / melts", "heats / melts", "heat / melt", "heated / melted"],
+            correctAnswer: "heat / melts"
+        },
+        {
+            question: "If it ___ (rain) tomorrow, I ___ (stay) at home. (Type 1)",
+            options: ["rains / will stay", "rain / will stay", "rained / would stay", "is raining / stay"],
+            correctAnswer: "rains / will stay"
+        },
+        {
+            question: "If I ___ (be) rich, I ___ (buy) a big house. (Type 2 - unreal present)",
+            options: ["was / buy", "were / bought", "were / would buy", "am / will buy"],
+            correctAnswer: "were / would buy"
+        },
+        {
+            question: "If I ___ (study) harder, I ___ (pass) the exam. (Type 3 - unreal past)",
+            options: ["studied / would pass", "had studied / would have passed", "had studied / would pass", "study / will pass"],
+            correctAnswer: "had studied / would have passed"
+        },
+        {
+            question: "If she ___ (know) about the party, she ___ (come). (Type 3)",
+            options: ["knew / would come", "had known / would have come", "knows / will come", "had known / would come"],
+            correctAnswer: "had known / would have come"
+        },
+        {
+            question: "If I ___ (be) you, I ___ (apologize). (Type 2 - advice)",
+            options: ["was / will apologize", "am / would apologize", "were / would apologize", "am / will apologize"],
+            correctAnswer: "were / would apologize"
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 14: Reported Speech ---
+    // ID elemen: 'reported-speech-quiz-question', 'reported-speech-quiz-options', 'reported-speech-quiz-feedback', 'next-reported-speech-btn'
+    const reportedSpeechQuizData = [
+        {
+            question: "Direct: He said, 'I am tired.' Reported:",
+            options: ["He said he is tired.", "He said that he was tired.", "He said he was tired.", "He says he is tired."],
+            correctAnswer: "He said that he was tired."
+        },
+        {
+            question: "Direct: She said, 'I finished my homework yesterday.' Reported:",
+            options: ["She said she finished her homework yesterday.", "She said she had finished her homework the day before.", "She said she finishes her homework.", "She says she finished her homework."],
+            correctAnswer: "She said she had finished her homework the day before."
+        },
+        {
+            question: "Direct: They said, 'We will come tomorrow.' Reported:",
+            options: ["They said they will come tomorrow.", "They said they would come the next day.", "They said they came tomorrow.", "They say they would come tomorrow."],
+            correctAnswer: "They said they would come the next day."
+        },
+        {
+            question: "Direct: John said, 'I can swim.' Reported:",
+            options: ["John said he can swim.", "John said he could swim.", "John said he would swim.", "John says he can swim."],
+            correctAnswer: "John said he could swim."
+        },
+        {
+            question: "Direct: She asked, 'Where is the book?' Reported:",
+            options: ["She asked where is the book.", "She asked where the book was.", "She asked where was the book.", "She asked where the book is."],
+            correctAnswer: "She asked where the book was."
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 15: Phrasal Verbs & Idioms ---
+    // ID elemen: 'phrasal-idiom-quiz-question', 'phrasal-idiom-quiz-options', 'phrasal-idiom-quiz-feedback', 'next-phrasal-idiom-btn'
+    const phrasalIdiomQuizData = [
+        {
+            question: "What does 'look up' mean in 'I need to look up this word'?",
+            options: ["Mencari ke atas", "Melihat ke atas", "Mencari informasi (di kamus/internet)", "Menemukan barang yang hilang"],
+            correctAnswer: "Mencari informasi (di kamus/internet)"
+        },
+        {
+            question: "What does 'break a leg!' mean?",
+            options: ["Mematahkan kaki", "Semoga berhasil!", "Pergi terburu-buru", "Beristirahat"],
+            correctAnswer: "Semoga berhasil!"
+        },
+        {
+            question: "What does 'give up' mean?",
+            options: ["Memberi sesuatu", "Menaikkan", "Menyerah", "Mulai melakukan sesuatu"],
+            correctAnswer: "Menyerah"
+        },
+        {
+            question: "If something is 'a piece of cake', it means it is...",
+            options: ["Sulit", "Enak", "Mudah", "Mahal"],
+            correctAnswer: "Mudah"
+        },
+        {
+            question: "What does 'turn on' mean?",
+            options: ["Memutar", "Menyalakan", "Mematikan", "Meninggalkan"],
+            correctAnswer: "Menyalakan"
+        },
+        {
+            question: "When it's 'raining cats and dogs', it means...",
+            options: ["Hujan hewan peliharaan", "Ada banyak kucing dan anjing", "Hujan sangat deras", "Hujan dengan suara keras"],
+            correctAnswer: "Hujan sangat deras"
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 16: Reading Comprehension ---
+    // ID elemen: 'reading-quiz-question', 'reading-quiz-options', 'reading-quiz-feedback', 'next-reading-btn'
+    const readingQuizData = [
+        {
+            question: "Menurut teks, apa salah satu manfaat utama membaca?",
+            options: ["Membuat kita menguasai bahasa baru", "Membuka dunia pengetahuan baru", "Meningkatkan kecepatan mengetik", "Membantu kita tidur"],
+            correctAnswer: "Membuka dunia pengetahuan baru"
+        },
+        {
+            question: "Bagaimana membaca dapat membantu otak kita?",
+            options: ["Membuatnya lelah", "Menjaganya tetap tajam dan aktif", "Membuatnya rileks secara pasif", "Membuat kita lebih cepat lupa"],
+            correctAnswer: "Menjaganya tetap tajam dan aktif"
+        },
+        {
+            question: "Mengapa pemahaman membaca (reading comprehension) penting bagi siswa?",
+            options: ["Agar mereka bisa menulis cerita fiksi", "Untuk memahami buku pelajaran dan soal ujian secara efektif", "Supaya bisa membaca koran", "Agar bisa berbicara dengan lancar"],
+            correctAnswer: "Untuk memahami buku pelajaran dan soal ujian secara efektif"
+        },
+        {
+            question: "Selain manfaat akademik, apa manfaat lain dari membaca yang disebutkan dalam teks?",
+            options: ["Meningkatkan kemampuan olahraga", "Sumber hiburan dan relaksasi", "Meningkatkan kemampuan memasak", "Membantu membuat teman baru"],
+            correctAnswer: "Sumber hiburan dan relaksasi"
         }
     ];
 
@@ -449,19 +570,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 feedbackElement.classList.add('show', 'correct');
                 
                 nextButton.style.display = 'block';
-                nextButton.textContent = 'Lanjut ke Modul Berikutnya';
-                nextButton.classList.add('btn-primary');
-                nextButton.classList.remove('btn-secondary');
                 
-                nextButton.onclick = () => {
-                    if (nextModuleUrl) {
+                // Cek apakah ini modul terakhir (Modul 16)
+                if (nextModuleUrl === '../../index.html') { // Jika diarahkan ke homepage
+                    nextButton.textContent = 'Kembali ke Beranda';
+                    nextButton.classList.add('btn-primary');
+                    nextButton.classList.remove('btn-secondary');
+                    nextButton.onclick = () => {
+                        alert('Selamat! Anda telah menyelesaikan seluruh kursus English Pro-Builder! Mari terus berlatih.');
                         window.location.href = nextModuleUrl;
-                    } else {
-                        alert('Selamat! Anda telah menyelesaikan modul ini. Tidak ada modul berikutnya yang ditentukan.');
-                        // Atau bisa redirect ke index.html utama:
-                        // window.location.href = '../../../index.html';
-                    }
-                };
+                    };
+                } else {
+                    nextButton.textContent = 'Lanjut ke Modul Berikutnya';
+                    nextButton.classList.add('btn-primary');
+                    nextButton.classList.remove('btn-secondary');
+                    nextButton.onclick = () => {
+                        if (nextModuleUrl) {
+                            window.location.href = nextModuleUrl;
+                        } else {
+                            alert('Selamat! Anda telah menyelesaikan modul ini. Tidak ada modul berikutnya yang ditentukan.');
+                        }
+                    };
+                }
             }
         }
 
@@ -546,32 +676,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Kuis Modul 8: Adverbs & Modals (Level 2)
-    // URL modul berikutnya: menuju modul pertama Level 3
     if (document.getElementById('adverb-modal-quiz-question')) {
         initQuiz('adverb-modal-quiz-question', 'adverb-modal-quiz-options', 'adverb-modal-quiz-feedback', 'next-adverb-modal-btn', adverbModalQuizData, '../../level3/09-simple-past-present-perfect/index.html');
     }
 
-    // BARU: Inisialisasi Kuis Modul 9: Simple Past & Present Perfect (Level 3)
-    // URL modul berikutnya: menuju modul 10 Level 3
+    // Kuis Modul 9: Simple Past & Present Perfect (Level 3)
     if (document.getElementById('past-perfect-quiz-question')) {
         initQuiz('past-perfect-quiz-question', 'past-perfect-quiz-options', 'past-perfect-quiz-feedback', 'next-past-perfect-btn', pastPerfectQuizData, '../10-comparative-superlative/index.html');
     }
 
-    // BARU: Inisialisasi Kuis Modul 10: Comparative & Superlative (Level 3)
-    // URL modul berikutnya: menuju modul 11 Level 3
+    // Kuis Modul 10: Comparative & Superlative (Level 3)
     if (document.getElementById('comparative-superlative-quiz-question')) {
         initQuiz('comparative-superlative-quiz-question', 'comparative-superlative-quiz-options', 'comparative-superlative-quiz-feedback', 'next-comparative-superlative-btn', comparativeSuperlativeQuizData, '../11-passive-voice/index.html');
     }
 
-    // BARU: Inisialisasi Kuis Modul 11: Passive Voice (Level 3)
-    // URL modul berikutnya: menuju modul 12 Level 3
+    // Kuis Modul 11: Passive Voice (Level 3)
     if (document.getElementById('passive-voice-quiz-question')) {
         initQuiz('passive-voice-quiz-question', 'passive-voice-quiz-options', 'passive-voice-quiz-feedback', 'next-passive-voice-btn', passiveVoiceQuizData, '../12-connectors-transitions/index.html');
     }
 
-    // BARU: Inisialisasi Kuis Modul 12: Connectors & Transitions (Level 3)
-    // Ini adalah modul terakhir di Level 3, jadi URL berikutnya adalah modul pertama Level 4
+    // Kuis Modul 12: Connectors & Transitions (Level 3)
     if (document.getElementById('connector-quiz-question')) {
         initQuiz('connector-quiz-question', 'connector-quiz-options', 'connector-quiz-feedback', 'next-connector-btn', connectorQuizData, '../../level4/13-conditional-sentences/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 13: Conditional Sentences (Level 4)
+    if (document.getElementById('conditional-quiz-question')) {
+        initQuiz('conditional-quiz-question', 'conditional-quiz-options', 'conditional-quiz-feedback', 'next-conditional-btn', conditionalQuizData, '../14-reported-speech/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 14: Reported Speech (Level 4)
+    if (document.getElementById('reported-speech-quiz-question')) {
+        initQuiz('reported-speech-quiz-question', 'reported-speech-quiz-options', 'reported-speech-quiz-feedback', 'next-reported-speech-btn', reportedSpeechQuizData, '../15-phrasal-verbs-idioms/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 15: Phrasal Verbs & Idioms (Level 4)
+    if (document.getElementById('phrasal-idiom-quiz-question')) {
+        initQuiz('phrasal-idiom-quiz-question', 'phrasal-idiom-quiz-options', 'phrasal-idiom-quiz-feedback', 'next-phrasal-idiom-btn', phrasalIdiomQuizData, '../16-reading-comprehension/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 16: Reading Comprehension (Level 4 - Modul Terakhir)
+    // Setelah modul ini, kursus selesai. Kita arahkan ke homepage.
+    if (document.getElementById('reading-quiz-question')) {
+        initQuiz('reading-quiz-question', 'reading-quiz-options', 'reading-quiz-feedback', 'next-reading-btn', readingQuizData, '../../../index.html');
     }
 });
