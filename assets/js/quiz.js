@@ -146,6 +146,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    // --- DATA KUIS BARU UNTUK MODUL 6: Prepositions of Place & Time ---
+    // ID elemen: 'preposition-quiz-question', 'preposition-quiz-options', 'preposition-quiz-feedback', 'next-preposition-btn'
+    const prepositionQuizData = [
+        {
+            question: "The book is ___ the table.",
+            options: ["in", "on", "at", "under"],
+            correctAnswer: "on"
+        },
+        {
+            question: "I live ___ Jakarta.",
+            options: ["on", "at", "in", "by"],
+            correctAnswer: "in"
+        },
+        {
+            question: "We meet ___ the cafe ___ 7 PM.",
+            options: ["in / on", "on / at", "at / at", "in / in"],
+            correctAnswer: "at / at"
+        },
+        {
+            question: "My birthday is ___ August 15th.",
+            options: ["in", "on", "at", "from"],
+            correctAnswer: "on"
+        },
+        {
+            question: "The cat is sleeping ___ the chair.",
+            options: ["over", "in", "under", "next to"],
+            correctAnswer: "under"
+        },
+        {
+            question: "She works ___ an office.",
+            options: ["on", "at", "in", "to"],
+            correctAnswer: "in"
+        },
+        {
+            question: "The meeting is ___ Monday morning.",
+            options: ["at", "in", "on", "for"],
+            correctAnswer: "on"
+        }
+    ];
+
     /**
      * @function initQuiz
      * Fungsi utama yang dapat dipakai ulang untuk menginisialisasi dan menjalankan
@@ -181,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 feedbackElement.textContent = '';
                 feedbackElement.className = 'quiz-feedback';
-                nextButton.style.display = 'none'; // Sembunyikan tombol 'Next' secara default
+                nextButton.style.display = 'none';
 
                 q.options.forEach(option => {
                     const button = document.createElement('button');
@@ -195,22 +235,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 questionElement.textContent = `Kuis selesai! Selamat! Anda berhasil menyelesaikan semua pertanyaan.`;
                 optionsContainer.innerHTML = '';
                 feedbackElement.textContent = `Skor Anda: ${userScore} dari ${quizQuestionsData.length} pertanyaan.`;
-                feedbackElement.classList.add('show', 'correct'); // Beri warna hijau untuk skor akhir
+                feedbackElement.classList.add('show', 'correct');
                 
-                nextButton.style.display = 'block'; // Tampilkan tombol
-                nextButton.textContent = 'Lanjut ke Modul Berikutnya'; // Ubah teks tombol
-                nextButton.classList.add('btn-primary'); // Jadikan tombol utama
-                nextButton.classList.remove('btn-secondary'); // Hapus kelas sekunder jika ada
+                nextButton.style.display = 'block';
+                nextButton.textContent = 'Lanjut ke Modul Berikutnya';
+                nextButton.classList.add('btn-primary');
+                nextButton.classList.remove('btn-secondary');
                 
-                // Tambahkan event listener untuk navigasi ke modul berikutnya
-                nextButton.onclick = () => { // Gunakan onclick untuk mengganti event listener sebelumnya
+                nextButton.onclick = () => {
                     if (nextModuleUrl) {
                         window.location.href = nextModuleUrl;
                     } else {
-                        // Jika nextModuleUrl tidak dispesifikasikan, mungkin kembali ke home atau tampilkan pesan lain
                         alert('Selamat! Anda telah menyelesaikan modul ini.');
-                        // Atau bisa redirect ke index.html utama:
-                        // window.location.href = '../../../index.html';
                     }
                 };
             }
@@ -243,16 +279,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 feedbackElement.classList.add('incorrect', 'show');
             }
             
-            // Atur tombol 'Next' kembali ke fungsi goToNextQuestion untuk pertanyaan berikutnya
-            // atau biarkan onclick yang sudah diatur untuk akhir kuis
-            if (currentQuestionIndex < quizQuestionsData.length) { // Jika belum selesai kuis
+            if (currentQuestionIndex < quizQuestionsData.length) {
                  nextButton.style.display = 'block'; 
                  nextButton.textContent = 'Pertanyaan Selanjutnya';
                  nextButton.classList.remove('btn-primary');
                  nextButton.classList.add('btn-secondary');
-                 nextButton.onclick = goToNextQuestion; // Kembali ke fungsi normal
+                 nextButton.onclick = goToNextQuestion;
             } else {
-                 // Sudah di akhir kuis, tombol nextButton akan diatur di loadQuestion
+                // Sudah di akhir kuis, tombol nextButton akan diatur di loadQuestion
             }
         }
 
@@ -261,36 +295,35 @@ document.addEventListener('DOMContentLoaded', () => {
             loadQuestion();
         }
 
-        // Event listener awal untuk tombol 'Pertanyaan Selanjutnya'
-        // Ini akan ditimpa di loadQuestion jika kuis selesai
         nextButton.addEventListener('click', goToNextQuestion);
         
         loadQuestion();
     }
 
     // --- Pemanggilan Fungsi initQuiz untuk Setiap Kuis di Halaman ---
-
+    
     // Kuis Modul 1: Alphabet & Numbers
-    // URL modul berikutnya: '../02-greetings-introductions/index.html'
     if (document.getElementById('number-quiz-question')) {
         initQuiz('number-quiz-question', 'number-quiz-options', 'number-quiz-feedback', 'next-question-btn', numberQuizData, '../02-greetings-introductions/index.html');
     }
 
     // Kuis Modul 2: Greetings & Introductions
-    // URL modul berikutnya: '../03-pronouns-to-be/index.html'
     if (document.getElementById('greetings-quiz-question')) {
         initQuiz('greetings-quiz-question', 'greetings-quiz-options', 'greetings-quiz-feedback', 'next-greetings-btn', greetingsQuizData, '../03-pronouns-to-be/index.html');
     }
 
     // Kuis Modul 3: Pronouns & 'To Be'
-    // URL modul berikutnya: '../04-essential-vocabulary/index.html'
     if (document.getElementById('tobe-quiz-question')) {
         initQuiz('tobe-quiz-question', 'tobe-quiz-options', 'tobe-quiz-feedback', 'next-tobe-btn', tobeQuizData, '../04-essential-vocabulary/index.html');
     }
 
     // Kuis Modul 5: Simple Present & Present Continuous
-    // URL modul berikutnya: '../06-prepositions-place-time/index.html'
     if (document.getElementById('tense-quiz-question')) {
         initQuiz('tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn', tenseQuizData, '../06-prepositions-place-time/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 6: Prepositions of Place & Time
+    if (document.getElementById('preposition-quiz-question')) {
+        initQuiz('preposition-quiz-question', 'preposition-quiz-options', 'preposition-quiz-feedback', 'next-preposition-btn', prepositionQuizData, '../07-articles-quantifiers/index.html');
     }
 });
