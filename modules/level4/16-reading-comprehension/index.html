@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 16: Reading Comprehension - English Pro-Builder</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <style>
+        /* CSS tambahan spesifik untuk modul ini */
+        .reading-text-box {
+            background-color: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-smooth);
+            box-shadow: var(--shadow-elevate-light);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--border-crisp);
+        }
+        .reading-text-box h4 {
+            font-size: 1.8em;
+            color: var(--text-heading);
+            margin-bottom: var(--spacing-m);
+            text-align: center;
+        }
+        .reading-text-box p {
+            margin-bottom: var(--spacing-s);
+            line-height: 1.8;
+            font-size: 1.05em;
+            color: var(--text-body-dark);
+            text-align: justify; /* Teks rata kanan-kiri untuk bacaan */
+        }
+        .reading-text-box p:last-child {
+            margin-bottom: 0;
+        }
+        .comprehension-questions-section {
+            background-color: var(--bg-light-gray);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-smooth);
+            box-shadow: var(--shadow-elevate-light);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--border-crisp);
+        }
+        .comprehension-questions-section ol {
+            list-style: none; /* Hapus numbering default OL */
+            counter-reset: question-counter; /* Reset counter */
+            padding: 0;
+            margin: 0;
+        }
+        .comprehension-questions-section li {
+            margin-bottom: var(--spacing-l);
+            position: relative;
+            padding-left: var(--spacing-l); /* Ruang untuk nomor pertanyaan */
+        }
+        .comprehension-questions-section li::before {
+            counter-increment: question-counter; /* Tambah counter */
+            content: counter(question-counter) "."; /* Tampilkan nomor dengan titik */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+            color: var(--color-accent-teal);
+            font-size: 1.2em;
+        }
+        .comprehension-questions-section .question-text {
+            font-size: 1.15em;
+            color: var(--text-heading);
+            margin-bottom: var(--spacing-s);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title">English Pro-Builder</h1>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../../../index.html" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="../13-conditional-sentences/index.html" class="nav-link">Level 4</a></li> 
+                    <li class="nav-item"><a href="#" class="nav-link current">Modul 16</a></li>
+                    <li class="nav-item"><a href="../../../about.html" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="../../../contact.html" class="nav-link">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container module-page">
+            <h2 class="section-title">Modul 16: Reading Comprehension</h2>
+            <p class="section-description">
+                Selamat datang di modul terakhir! Reading Comprehension adalah kemampuan untuk memahami makna dari sebuah teks. Dalam modul ini, Anda akan membaca teks-teks pendek dan menjawab pertanyaan untuk melatih pemahaman Anda.
+            </p>
+
+            <section class="module-section">
+                <h3>Teks Bacaan: "The Importance of Reading"</h3>
+                <div class="reading-text-box">
+                    <h4>The Importance of Reading</h4>
+                    <p>
+                        Reading is one of the most important skills a person can develop. It opens up new worlds of knowledge, improves vocabulary, and enhances critical thinking. When we read, we expose ourselves to different ideas, cultures, and perspectives, which helps us grow as individuals.
+                    </p>
+                    <p>
+                        Regular reading also strengthens our brain. It is a mental exercise that keeps our minds sharp and active. For students, reading comprehension is vital for academic success, as it allows them to understand textbooks, articles, and exam questions effectively.
+                    </p>
+                    <p>
+                        Beyond academic benefits, reading can be a great source of entertainment and relaxation. Whether it's a thrilling novel, an informative non-fiction book, or a captivating news article, reading offers a quiet escape and a way to learn something new every day. So, pick up a book and start exploring!
+                    </p>
+                </div>
+            </section>
+
+            <section class="module-section comprehension-questions-section">
+                <h3>Pertanyaan Pemahaman (Comprehension Questions)</h3>
+                <p>Baca teks di atas dengan seksama, lalu jawab pertanyaan-pertanyaan berikut berdasarkan informasi yang ada di dalam teks.</p>
+                <div class="quiz-container">
+                    <p class="quiz-question" id="reading-quiz-question"></p>
+                    <div class="quiz-options" id="reading-quiz-options"></div>
+                    <div class="quiz-feedback" id="reading-quiz-feedback"></div>
+                    <button id="next-reading-btn" class="btn btn-secondary">Pertanyaan Selanjutnya</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> English Pro-Builder. Hak Cipta Dilindungi Undang-Undang.</p>
+            <ul class="footer-nav">
+                <li><a href="../../../about.html">Tentang</a></li>
+                <li><a href="../../../contact.html">Kontak</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../../assets/js/main.js"></script>
+    <script src="../../../assets/js/quiz.js"></script>
+    <script>
+        // Memperbarui tahun di footer secara otomatis
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
