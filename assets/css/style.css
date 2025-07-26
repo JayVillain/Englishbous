@@ -76,7 +76,7 @@ body {
 .main-header {
     background-color: var(--color-primary-dark); /* Biru gelap untuk header */
     color: #fff;
-    padding: var(--spacing-l) 0; /* Padding vertikal lebih besar */
+    padding: var(--spacing-m) 0; /* Padding diperkecil (sebelumnya var(--spacing-l)) */
     box-shadow: var(--shadow-elevate-light); /* Bayangan yang menonjol */
     position: sticky;
     top: 0;
@@ -84,17 +84,17 @@ body {
 }
 
 .site-title {
-    font-size: 3.2em; /* Ukuran judul situs lebih besar */
+    font-size: 2.4em; /* Ukuran font diperkecil (sebelumnya 3.2em) */
     margin: 0;
     text-align: center;
-    letter-spacing: 2.5px;
+    letter-spacing: 1.5px; /* Letter spacing disesuaikan (sebelumnya 2.5px) */
     font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Bayangan teks lebih jelas */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Shadow diperhalus */
 }
 
 /* --- NAVIGATION (Navigasi Utama) --- */
 .main-nav {
-    margin-top: var(--spacing-l); /* Jarak dari judul situs */
+    margin-top: var(--spacing-s); /* Margin diperkecil (sebelumnya var(--spacing-l)) */
     text-align: center;
 }
 
@@ -107,15 +107,15 @@ body {
 }
 
 .nav-item {
-    margin: 0 var(--spacing-m); /* Jarak antar item navigasi */
+    margin: 0 var(--spacing-s); /* Margin diperkecil (sebelumnya var(--spacing-m)) */
 }
 
 .nav-link {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.25em;
-    padding: var(--spacing-s) 0; /* Padding vertikal */
+    font-size: 1em; /* Ukuran font diperkecil (sebelumnya 1.25em) */
+    padding: var(--spacing-xs) 0; /* Padding diperkecil (sebelumnya var(--spacing-s)) */
     position: relative;
     transition: color var(--transition-duration-standard) var(--transition-timing-function);
 }
@@ -124,7 +124,7 @@ body {
     content: '';
     position: absolute;
     width: 0;
-    height: 3px;
+    height: 2px; /* Tinggi garis bawah diperkecil (sebelumnya 3px) */
     background-color: var(--color-accent-teal); /* Underline dengan warna aksen */
     left: 0;
     bottom: 0;
@@ -268,29 +268,29 @@ body {
 .main-footer {
     background-color: var(--color-primary-dark); /* Footer dengan warna biru gelap utama */
     color: var(--text-light); /* Teks footer dengan warna sangat ringan */
-    padding: var(--spacing-l) 0;
+    padding: var(--spacing-s) 0; /* Padding diperkecil (sebelumnya var(--spacing-l)) */
     text-align: center;
     margin-top: auto;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* Shadow diperhalus (sebelumnya 0 -4px 15px) */
 }
 
 .footer-nav {
     list-style: none;
     padding: 0;
-    margin-top: var(--spacing-l);
+    margin-top: var(--spacing-xs); /* Margin diperkecil (sebelumnya var(--spacing-l)) */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .footer-nav li {
-    margin: 0 var(--spacing-s);
+    margin: 0 var(--spacing-xxs); /* Margin diperkecil (sebelumnya var(--spacing-s)) */
 }
 
 .footer-nav a {
     color: var(--text-light);
     text-decoration: none;
-    font-size: 1em;
+    font-size: 0.9em; /* Ukuran font diperkecil (sebelumnya 1em) */
     transition: color var(--transition-duration-standard) var(--transition-timing-function);
 }
 
@@ -352,7 +352,7 @@ body {
 }
 
 
-/* --- KUIS GLOBAL STYLES (Disesuaikan untuk Tampilan Profesional) --- */
+/* --- KUIS GLOBAL STYLES --- */
 .quiz-container {
     background-color: var(--bg-white); /* Latar belakang kuis putih bersih */
     padding: var(--spacing-xl);
@@ -389,7 +389,7 @@ body {
     font-size: 1.25em; /* Ukuran font tombol lebih besar */
     font-weight: bold;
     transition: all var(--transition-duration-standard) var(--transition-timing-function);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 .quiz-options button:hover:not([disabled]) {
     background-color: var(--color-secondary-blue-dark); /* Biru sekunder lebih gelap saat hover */
@@ -432,9 +432,9 @@ body {
 /* Tombol next memiliki id yang unik per kuis, jadi list semua ID nya */
 #next-question-btn, #next-greetings-btn, #next-tobe-btn, #next-tense-btn, #next-matching-btn {
     display: none;
-    margin-top: var(--spacing-l);
+    margin-top: var(--spacing-xl); /* Diperbesar agar ada lebih banyak ruang setelah feedback */
     width: 100%;
-    background-color: var(--color-accent-teal); /* Tombol next dengan warna aksen teal */
+    background-color: var(--color-accent-teal);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 #next-question-btn:hover, #next-greetings-btn:hover, #next-tobe-btn:hover, #next-tense-btn:hover, #next-matching-btn:hover {
@@ -452,25 +452,25 @@ body {
     padding: var(--spacing-m);
     border: 1px dashed var(--border-crisp);
     border-radius: var(--border-radius-smooth);
-    min-height: 300px; /* Tinggi minimum lebih besar */
-    background-color: var(--bg-light-gray); /* Latar belakang abu-abu terang */
+    min-height: 300px;
+    background-color: var(--bg-light-gray);
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
 }
 
 #matching-quiz-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl); /* Jarak antar kolom lebih besar */
+    gap: var(--spacing-xl);
     margin-top: var(--spacing-m);
 }
 
 .matching-item {
-    background-color: var(--bg-white); /* Latar belakang putih bersih */
+    background-color: var(--bg-white);
     padding: var(--spacing-m) var(--spacing-l);
     border: 1px solid var(--border-crisp);
     border-radius: var(--border-radius-smooth);
     cursor: pointer;
-    font-size: 1.2em; /* Ukuran font item mencocokkan */
+    font-size: 1.2em;
     font-weight: 500;
     transition: all var(--transition-duration-standard) var(--transition-timing-function);
     text-align: center;
@@ -478,22 +478,22 @@ body {
 }
 
 .matching-item:hover:not([disabled]) {
-    background-color: #F0F4F8; /* Sedikit kebiruan saat hover */
+    background-color: #F0F4F8;
     border-color: var(--color-secondary-blue);
     transform: translateY(-5px) scale(1.03);
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .matching-item.selected {
-    background-color: var(--color-secondary-blue); /* Warna biru sekunder saat terpilih */
+    background-color: var(--color-secondary-blue);
     color: white;
     border-color: var(--color-secondary-blue-dark);
-    box-shadow: 0 0 15px rgba(52,152,219,0.8); /* Glow biru lebih menonjol */
+    box-shadow: 0 0 15px rgba(52,152,219,0.8);
     transform: scale(1.08);
 }
 
 .matching-item.matched {
-    background-color: var(--color-accent-teal); /* Warna teal saat cocok */
+    background-color: var(--color-accent-teal);
     color: white;
     border-color: var(--color-accent-teal-dark);
     cursor: not-allowed;
@@ -504,38 +504,40 @@ body {
 
 /* --- ITEM DISPLAY UNTUK MODUL ALPHABET & NUMBERS (Dari Modul 1) --- */
 .item {
-    background-color: var(--bg-light-gray); /* Latar belakang abu-abu terang */
+    background-color: var(--bg-light-gray);
     padding: var(--spacing-m) var(--spacing-s);
     border-radius: var(--border-radius-smooth);
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
     text-align: center;
-    font-size: 2.6em; /* Ukuran angka/huruf utama sedikit disesuaikan */
+    font-size: 2.6em; /* Ukuran angka/huruf utama tetap besar */
     font-weight: bold;
-    color: var(--text-heading); /* Warna teks heading */
+    color: var(--text-heading);
     transition: all var(--transition-duration-standard) var(--transition-timing-function);
     cursor: default;
     border: 1px solid var(--border-crisp);
 }
 .item:hover {
     transform: translateY(-6px) scale(1.03);
-    background-color: #E6EEF4; /* Sedikit kebiruan saat hover */
+    background-color: #E6EEF4;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .item small {
-    font-size: 0.7em; /* Disesuaikan untuk memastikan tidak bentrok */
+    /* PENTING: Penyesuaian font-size untuk teks pengucapan */
+    font-size: 0.7em;
     line-height: 1.2;
-    color: var(--text-body-medium); /* Warna teks pengucapan */
+    color: var(--text-body-medium);
     margin-top: var(--spacing-xs);
 }
 .alphabet-grid, .number-grid {
-    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); /* Lebar minimal kolom sedikit ditingkatkan */
+    /* PENTING: Penyesuaian minmax di grid agar ada lebih banyak ruang horizontal */
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
     gap: var(--spacing-m);
 }
 
 /* --- KOTAK DIALOG (Dari Modul 2) --- */
 .dialogue-box {
     background-color: var(--bg-light-gray);
-    border-left: 10px solid var(--color-secondary-blue); /* Border dengan biru sekunder */
+    border-left: 10px solid var(--color-secondary-blue);
     padding: var(--spacing-l) var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
     border-radius: var(--border-radius-smooth);
@@ -566,7 +568,7 @@ body {
     color: var(--text-body-dark);
 }
 .grammar-table th {
-    background-color: var(--color-primary-medium); /* Header tabel dengan biru gelap sedang */
+    background-color: var(--color-primary-medium);
     color: white;
     font-weight: bold;
     font-size: 1.2em;
@@ -575,7 +577,7 @@ body {
     background-color: var(--bg-light-gray);
 }
 .grammar-table tr:hover {
-    background-color: #EBF2F8; /* Hover baris dengan abu-abu kebiruan */
+    background-color: #EBF2F8;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
@@ -607,7 +609,7 @@ body {
 }
 
 .grammar-example {
-    background-color: #F0FAF5; /* Latar belakang hijau sangat pudar untuk contoh */
+    background-color: #F0FAF5;
     padding: var(--spacing-l) var(--spacing-xl);
     border-radius: var(--border-radius-smooth);
     margin-top: var(--spacing-m);
@@ -724,7 +726,7 @@ body {
     /* Penyesuaian kuis di mobile */
     .quiz-question { font-size: 1.4em; margin-bottom: var(--spacing-m); }
     .quiz-options { gap: var(--spacing-s); }
-    .quiz-options button { flex: 1 1 100%; max-width: none; padding: var(--spacing-s) var(--spacing-m); font-size: 1.15em; }
+    .quiz-options button { flex: 1 1 100%; max-width: none; padding: var(--spacing-xs) var(--spacing-m); font-size: 1.1em; }
     .quiz-feedback { font-size: 1.3em; padding: var(--spacing-m); }
     
     #matching-quiz-container { grid-template-columns: 1fr; gap: var(--spacing-m); }
@@ -733,8 +735,8 @@ body {
 
     /* Item Alphabet/Numbers di mobile */
     .item { font-size: 2.2em; padding: var(--spacing-s) var(--spacing-xs); }
-    .item small { font-size: 0.68em; line-height: 1.1; } /* Font pengucapan lebih kecil */
-    .alphabet-grid, .number-grid { grid-template-columns: repeat(auto-fit, minmax(85px, 1fr)); gap: var(--spacing-s); } /* Lebar minimal kolom disesuaikan */
+    .item small { font-size: 0.65em; line-height: 1.1; }
+    .alphabet-grid, .number-grid { grid-template-columns: repeat(auto-fit, minmax(85px, 1fr)); gap: var(--spacing-s); }
 
     .dialogue-box, .grammar-concept, .grammar-example, .vocab-item { padding: var(--spacing-l) var(--spacing-m); }
     .module-section p, .module-section ul, .module-section ol { font-size: 1em; }
@@ -758,8 +760,8 @@ body {
     
     /* Item Alphabet/Numbers di smartphone */
     .item { font-size: 1.8em; padding: var(--spacing-xs) var(--spacing-xxs); }
-    .item small { font-size: 0.62em; line-height: 1.1; } /* Lebih dikecilkan lagi */
-    .alphabet-grid, .number-grid { grid-template-columns: repeat(auto-fit, minmax(75px, 1fr)); gap: var(--spacing-s); } /* Lebar minimal kolom disesuaikan */
+    .item small { font-size: 0.58em; line-height: 1.1; }
+    .alphabet-grid, .number-grid { grid-template-columns: repeat(auto-fit, minmax(75px, 1fr)); gap: var(--spacing-s); }
 
     .vocab-word { font-size: 2em; }
     .vocab-translation { font-size: 1em; }
