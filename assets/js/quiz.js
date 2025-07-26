@@ -224,8 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // --- DATA KUIS BARU UNTUK MODUL 8: Adverbs & Modals ---
-    // ID elemen: 'adverb-modal-quiz-question', 'adverb-modal-quiz-options', 'adverb-modal-quiz-feedback', 'next-adverb-modal-btn'
+    // --- Data Kuis untuk Modul 8: Adverbs & Modals ---
     const adverbModalQuizData = [
         {
             question: "She ___ (always / go) to work by bus.",
@@ -256,6 +255,146 @@ document.addEventListener('DOMContentLoaded', () => {
             question: "We ___ (usually / study) in the library.",
             options: ["study usually", "are usually studying", "usually study", "usually studies"],
             correctAnswer: "usually study"
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 9: Simple Past & Present Perfect ---
+    // ID elemen: 'past-perfect-quiz-question', 'past-perfect-quiz-options', 'past-perfect-quiz-feedback', 'next-past-perfect-btn'
+    const pastPerfectQuizData = [
+        {
+            question: "I ___ (visit) Paris last year.",
+            options: ["visited", "have visited", "visit", "was visiting"],
+            correctAnswer: "visited"
+        },
+        {
+            question: "She ___ (live) here for five years. (She still lives here.)",
+            options: ["lived", "has lived", "lives", "is living"],
+            correctAnswer: "has lived"
+        },
+        {
+            question: "They ___ (not see) her since Monday.",
+            options: ["did not see", "have not seen", "do not see", "are not seeing"],
+            correctAnswer: "have not seen"
+        },
+        {
+            question: "___ you ever ___ (be) to London?",
+            options: ["Did you ever be", "Have you ever been", "Are you ever been", "Do you ever be"],
+            correctAnswer: "Have you ever been"
+        },
+        {
+            question: "He ___ (finish) his homework an hour ago.",
+            options: ["has finished", "finished", "finishes", "is finishing"],
+            correctAnswer: "finished"
+        },
+        {
+            question: "My keys ___ (be / find). (They are found now).",
+            options: ["were found", "have been found", "are found", "had been found"],
+            correctAnswer: "have been found" // assuming present relevance
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 10: Comparative & Superlative ---
+    // ID elemen: 'comparative-superlative-quiz-question', 'comparative-superlative-quiz-options', 'comparative-superlative-quiz-feedback', 'next-comparative-superlative-btn'
+    const comparativeSuperlativeQuizData = [
+        {
+            question: "My car is ___ (fast) than yours.",
+            options: ["faster", "fastest", "more fast", "most fast"],
+            correctAnswer: "faster"
+        },
+        {
+            question: "She is ___ (tall) student in the class.",
+            options: ["tallest", "the tallest", "taller", "the taller"],
+            correctAnswer: "the tallest"
+        },
+        {
+            question: "This painting is ___ (beautiful) than that one.",
+            options: ["beautifuler", "more beautiful", "most beautiful", "beautifullest"],
+            correctAnswer: "more beautiful"
+        },
+        {
+            question: "It was ___ (easy) exam of my life.",
+            options: ["easier", "easiest", "the easiest", "more easy"],
+            correctAnswer: "the easiest"
+        },
+        {
+            question: "He speaks ___ (fluently) in the group.",
+            options: ["more fluently", "most fluently", "the most fluently", "fluentlyer"],
+            correctAnswer: "the most fluently"
+        },
+        {
+            question: "That's ___ (bad) movie I've ever seen.",
+            options: ["worse", "worst", "the worst", "badder"],
+            correctAnswer: "the worst"
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 11: Passive Voice ---
+    // ID elemen: 'passive-voice-quiz-question', 'passive-voice-quiz-options', 'passive-voice-quiz-feedback', 'next-passive-voice-btn'
+    const passiveVoiceQuizData = [
+        {
+            question: "The car ___ (wash) every week. (Simple Present Passive)",
+            options: ["is washing", "is washed", "washes", "are washed"],
+            correctAnswer: "is washed"
+        },
+        {
+            question: "The letter ___ (send) yesterday. (Simple Past Passive)",
+            options: ["is sent", "was sent", "sent", "has sent"],
+            correctAnswer: "was sent"
+        },
+        {
+            question: "My keys ___ (find) by someone. (Present Perfect Passive)",
+            options: ["have found", "have been found", "had found", "are found"],
+            correctAnswer: "have been found"
+        },
+        {
+            question: "The house ___ (build) now. (Present Continuous Passive)",
+            options: ["is built", "is being built", "is building", "has been built"],
+            correctAnswer: "is being built"
+        },
+        {
+            question: "English ___ (can / learn) easily. (Modal Passive)",
+            options: ["can learn", "can be learned", "could learn", "is learned"],
+            correctAnswer: "can be learned"
+        },
+        {
+            question: "Dinner ___ (prepare) by my mother every evening. (Simple Present Passive)",
+            options: ["is preparing", "is prepared", "prepares", "was prepared"],
+            correctAnswer: "is prepared"
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 12: Connectors & Transitions ---
+    // ID elemen: 'connector-quiz-question', 'connector-quiz-options', 'connector-quiz-feedback', 'next-connector-btn'
+    const connectorQuizData = [
+        {
+            question: "He likes apples ___ bananas.",
+            options: ["but", "so", "and", "however"],
+            correctAnswer: "and"
+        },
+        {
+            question: "It was raining. ___, we went for a walk.",
+            options: ["Because", "So", "However", "Although"],
+            correctAnswer: "However"
+        },
+        {
+            question: "She is smart; ___, she is very kind.",
+            options: ["but", "in addition", "therefore", "so"],
+            correctAnswer: "in addition"
+        },
+        {
+            question: "He studied hard, ___ he passed the exam.",
+            options: ["because", "although", "so", "however"],
+            correctAnswer: "so"
+        },
+        {
+            question: "___ it was cold, she went outside.",
+            options: ["However", "Because", "Although", "Therefore"],
+            correctAnswer: "Although"
+        },
+        {
+            question: "First, prepare the ingredients. ___, mix them together.",
+            options: ["Finally", "Then", "As a result", "Because"],
+            correctAnswer: "Then"
         }
     ];
 
@@ -318,7 +457,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (nextModuleUrl) {
                         window.location.href = nextModuleUrl;
                     } else {
-                        alert('Selamat! Anda telah menyelesaikan modul ini.');
+                        alert('Selamat! Anda telah menyelesaikan modul ini. Tidak ada modul berikutnya yang ditentukan.');
+                        // Atau bisa redirect ke index.html utama:
+                        // window.location.href = '../../../index.html';
                     }
                 };
             }
@@ -374,40 +515,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Pemanggilan Fungsi initQuiz untuk Setiap Kuis di Halaman ---
     
-    // Kuis Modul 1: Alphabet & Numbers
+    // Kuis Modul 1: Alphabet & Numbers (Level 1)
     if (document.getElementById('number-quiz-question')) {
         initQuiz('number-quiz-question', 'number-quiz-options', 'number-quiz-feedback', 'next-question-btn', numberQuizData, '../02-greetings-introductions/index.html');
     }
 
-    // Kuis Modul 2: Greetings & Introductions
+    // Kuis Modul 2: Greetings & Introductions (Level 1)
     if (document.getElementById('greetings-quiz-question')) {
         initQuiz('greetings-quiz-question', 'greetings-quiz-options', 'greetings-quiz-feedback', 'next-greetings-btn', greetingsQuizData, '../03-pronouns-to-be/index.html');
     }
 
-    // Kuis Modul 3: Pronouns & 'To Be'
+    // Kuis Modul 3: Pronouns & 'To Be' (Level 1)
     if (document.getElementById('tobe-quiz-question')) {
         initQuiz('tobe-quiz-question', 'tobe-quiz-options', 'tobe-quiz-feedback', 'next-tobe-btn', tobeQuizData, '../04-essential-vocabulary/index.html');
     }
 
-    // Kuis Modul 5: Simple Present & Present Continuous
+    // Kuis Modul 5: Simple Present & Present Continuous (Level 2)
     if (document.getElementById('tense-quiz-question')) {
         initQuiz('tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn', tenseQuizData, '../06-prepositions-place-time/index.html');
     }
 
-    // Kuis Modul 6: Prepositions of Place & Time
+    // Kuis Modul 6: Prepositions of Place & Time (Level 2)
     if (document.getElementById('preposition-quiz-question')) {
         initQuiz('preposition-quiz-question', 'preposition-quiz-options', 'preposition-quiz-feedback', 'next-preposition-btn', prepositionQuizData, '../07-articles-quantifiers/index.html');
     }
 
-    // Kuis Modul 7: Articles & Quantifiers
+    // Kuis Modul 7: Articles & Quantifiers (Level 2)
     if (document.getElementById('article-quantifier-quiz-question')) {
         initQuiz('article-quantifier-quiz-question', 'article-quantifier-quiz-options', 'article-quantifier-quiz-feedback', 'next-article-quantifier-btn', articleQuantifierQuizData, '../08-adverbs-modals/index.html');
     }
 
-    // BARU: Inisialisasi Kuis Modul 8: Adverbs & Modals
-    // Ini adalah modul terakhir di Level 2, jadi untuk nextModuleUrl, kita bisa arahkan ke halaman utama Level 3 atau ke homepage.
-    // Untuk saat ini, kita arahkan ke halaman utama Level 3 yang belum ada, bisa diganti nanti ke index.html utama.
+    // Kuis Modul 8: Adverbs & Modals (Level 2)
+    // URL modul berikutnya: menuju modul pertama Level 3
     if (document.getElementById('adverb-modal-quiz-question')) {
         initQuiz('adverb-modal-quiz-question', 'adverb-modal-quiz-options', 'adverb-modal-quiz-feedback', 'next-adverb-modal-btn', adverbModalQuizData, '../../level3/09-simple-past-present-perfect/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 9: Simple Past & Present Perfect (Level 3)
+    // URL modul berikutnya: menuju modul 10 Level 3
+    if (document.getElementById('past-perfect-quiz-question')) {
+        initQuiz('past-perfect-quiz-question', 'past-perfect-quiz-options', 'past-perfect-quiz-feedback', 'next-past-perfect-btn', pastPerfectQuizData, '../10-comparative-superlative/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 10: Comparative & Superlative (Level 3)
+    // URL modul berikutnya: menuju modul 11 Level 3
+    if (document.getElementById('comparative-superlative-quiz-question')) {
+        initQuiz('comparative-superlative-quiz-question', 'comparative-superlative-quiz-options', 'comparative-superlative-quiz-feedback', 'next-comparative-superlative-btn', comparativeSuperlativeQuizData, '../11-passive-voice/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 11: Passive Voice (Level 3)
+    // URL modul berikutnya: menuju modul 12 Level 3
+    if (document.getElementById('passive-voice-quiz-question')) {
+        initQuiz('passive-voice-quiz-question', 'passive-voice-quiz-options', 'passive-voice-quiz-feedback', 'next-passive-voice-btn', passiveVoiceQuizData, '../12-connectors-transitions/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 12: Connectors & Transitions (Level 3)
+    // Ini adalah modul terakhir di Level 3, jadi URL berikutnya adalah modul pertama Level 4
+    if (document.getElementById('connector-quiz-question')) {
+        initQuiz('connector-quiz-question', 'connector-quiz-options', 'connector-quiz-feedback', 'next-connector-btn', connectorQuizData, '../../level4/13-conditional-sentences/index.html');
     }
 });
