@@ -56,45 +56,45 @@
 /* --- BASE STYLES (Gaya Dasar untuk Seluruh Halaman) --- */
 body {
     font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.7; /* Ketinggian baris untuk keterbacaan yang nyaman */
-    color: var(--text-body-dark); /* Teks tubuh utama dari variabel */
-    background-color: var(--bg-white); /* Latar belakang putih bersih */
+    line-height: 1.7;
+    color: var(--text-body-dark);
+    background-color: var(--bg-white);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* CONTAINER: Kelas utilitas untuk membatasi lebar konten dan memusatkannya. */
+/* CONTAINER: Kelas utilitas untuk membatasi lebar konten. */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-xl); /* Padding samping lebih besar */
+    padding: 0 var(--spacing-xl);
 }
 
 /* --- HEADER (Bagian Atas Situs) --- */
 .main-header {
-    background-color: var(--color-primary-dark); /* Biru gelap untuk header */
+    background-color: var(--color-primary-dark);
     color: #fff;
-    padding: var(--spacing-m) 0; /* Padding diperkecil (sebelumnya var(--spacing-l)) */
-    box-shadow: var(--shadow-elevate-light); /* Bayangan yang menonjol */
-    position: sticky;
-    top: 0;
+    padding: var(--spacing-m) 0;
+    box-shadow: var(--shadow-elevate-light);
+    /* Dihapus: position: sticky; */ /* Ini yang membuat header menempel */
+    /* Dihapus: top: 0; */           /* Ini juga harus dihapus bersama sticky */
     z-index: 1000;
 }
 
 .site-title {
-    font-size: 2.4em; /* Ukuran font diperkecil (sebelumnya 3.2em) */
+    font-size: 2.4em;
     margin: 0;
     text-align: center;
-    letter-spacing: 1.5px; /* Letter spacing disesuaikan (sebelumnya 2.5px) */
+    letter-spacing: 1.5px;
     font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Shadow diperhalus */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 /* --- NAVIGATION (Navigasi Utama) --- */
 .main-nav {
-    margin-top: var(--spacing-s); /* Margin diperkecil (sebelumnya var(--spacing-l)) */
+    margin-top: var(--spacing-s);
     text-align: center;
 }
 
@@ -107,15 +107,15 @@ body {
 }
 
 .nav-item {
-    margin: 0 var(--spacing-s); /* Margin diperkecil (sebelumnya var(--spacing-m)) */
+    margin: 0 var(--spacing-s);
 }
 
 .nav-link {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1em; /* Ukuran font diperkecil (sebelumnya 1.25em) */
-    padding: var(--spacing-xs) 0; /* Padding diperkecil (sebelumnya var(--spacing-s)) */
+    font-size: 1em;
+    padding: var(--spacing-xs) 0;
     position: relative;
     transition: color var(--transition-duration-standard) var(--transition-timing-function);
 }
@@ -124,8 +124,8 @@ body {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px; /* Tinggi garis bawah diperkecil (sebelumnya 3px) */
-    background-color: var(--color-accent-teal); /* Underline dengan warna aksen */
+    height: 2px;
+    background-color: var(--color-accent-teal);
     left: 0;
     bottom: 0;
     transition: width var(--transition-duration-standard) var(--transition-timing-function);
@@ -137,13 +137,13 @@ body {
 }
 
 .nav-link.current {
-    color: var(--color-accent-teal); /* Teks aktif dengan warna aksen */
+    color: var(--color-accent-teal);
 }
 
 /* --- MAIN CONTENT (Konten Utama) --- */
 .main-content {
     flex-grow: 1;
-    padding: var(--spacing-xxl) 0; /* Padding vertikal sangat besar */
+    padding: var(--spacing-xxl) 0;
     animation: fadeIn var(--transition-duration-standard) var(--transition-timing-function);
 }
 
@@ -154,11 +154,11 @@ body {
 
 .section-title {
     font-size: 3.2em;
-    color: var(--text-heading); /* Judul bagian dengan warna teks heading */
+    color: var(--text-heading);
     text-align: center;
-    margin-bottom: var(--spacing-xl); /* Jarak bawah lebih besar */
+    margin-bottom: var(--spacing-xl);
     position: relative;
-    padding-bottom: var(--spacing-m); /* Padding bawah lebih besar */
+    padding-bottom: var(--spacing-m);
     font-weight: 700;
     letter-spacing: 1.5px;
 }
@@ -169,38 +169,38 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    width: 150px; /* Lebar underline lebih panjang */
-    height: 6px; /* Tinggi underline lebih tebal */
-    background-color: var(--color-accent-teal); /* Underline dengan warna aksen */
+    width: 150px;
+    height: 6px;
+    background-color: var(--color-accent-teal);
     border-radius: 3px;
 }
 
 .section-description, .call-to-action {
-    font-size: 1.3em; /* Ukuran deskripsi lebih besar */
+    font-size: 1.3em;
     text-align: center;
     max-width: 950px;
-    margin: 0 auto var(--spacing-xl) auto; /* Margin bawah lebih besar */
-    color: var(--text-body-dark); /* Deskripsi dengan warna teks tubuh gelap */
+    margin: 0 auto var(--spacing-xl) auto;
+    color: var(--text-body-dark);
 }
 
 /* --- BUTTONS (Tombol) --- */
 .btn {
     display: inline-block;
-    padding: var(--spacing-m) var(--spacing-l); /* Padding tombol lebih besar */
-    border-radius: var(--border-radius-smooth); /* Sudut membulat halus */
+    padding: var(--spacing-m) var(--spacing-l);
+    border-radius: var(--border-radius-smooth);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.2em;
     cursor: pointer;
     border: none;
     transition: all var(--transition-duration-standard) var(--transition-timing-function);
-    box-shadow: var(--shadow-elevate-light); /* Bayangan untuk mengangkat */
+    box-shadow: var(--shadow-elevate-light);
 }
 
 .btn-primary {
-    background-color: var(--color-accent-teal); /* Tombol utama dengan warna aksen */
+    background-color: var(--color-accent-teal);
     color: #fff;
-    margin-top: var(--spacing-l); /* Jarak atas */
+    margin-top: var(--spacing-l);
     display: block;
     width: fit-content;
     margin-left: auto;
@@ -208,18 +208,18 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: var(--color-accent-teal-dark); /* Warna aksen lebih gelap saat hover */
+    background-color: var(--color-accent-teal-dark);
     transform: translateY(-6px) scale(1.04);
-    box-shadow: var(--shadow-elevate-hover); /* Bayangan lebih menonjol saat hover */
+    box-shadow: var(--shadow-elevate-hover);
 }
 
 .btn-secondary {
-    background-color: var(--text-body-medium); /* Tombol sekunder dengan warna teks abu-abu sedang */
+    background-color: var(--text-body-medium);
     color: #fff;
 }
 
 .btn-secondary:hover {
-    background-color: #617385; /* Sedikit lebih gelap */
+    background-color: #617385;
     transform: translateY(-6px) scale(1.04);
     box-shadow: var(--shadow-elevate-hover);
 }
@@ -228,21 +228,21 @@ body {
 .level-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-xl); /* Jarak antar kartu lebih besar */
-    margin-top: var(--spacing-xxl); /* Jarak atas lebih besar */
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xxl);
 }
 
 .level-card {
-    background-color: var(--bg-light-gray); /* Latar belakang kartu abu-abu terang */
+    background-color: var(--bg-light-gray);
     border-radius: var(--border-radius-smooth);
     box-shadow: var(--shadow-elevate-light);
-    padding: var(--spacing-xl); /* Padding kartu lebih besar */
+    padding: var(--spacing-xl);
     text-align: center;
     transition: all var(--transition-duration-standard) var(--transition-timing-function);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid var(--border-crisp); /* Border bersih */
+    border: 1px solid var(--border-crisp);
 }
 
 .level-card:hover {
@@ -251,46 +251,46 @@ body {
 }
 
 .level-card-title {
-    font-size: 2.4em; /* Ukuran judul kartu lebih besar */
-    color: var(--color-primary-medium); /* Judul kartu dengan warna biru gelap sedang */
+    font-size: 2.4em;
+    color: var(--color-primary-medium);
     margin-bottom: var(--spacing-s);
     font-weight: 600;
 }
 
 .level-card-description {
-    font-size: 1.2em; /* Ukuran deskripsi lebih besar */
-    color: var(--text-body-medium); /* Deskripsi dengan warna teks abu-abu sedang */
-    margin-bottom: var(--spacing-xl); /* Margin bawah lebih besar */
+    font-size: 1.2em;
+    color: var(--text-body-medium);
+    margin-bottom: var(--spacing-xl);
     flex-grow: 1;
 }
 
 /* --- FOOTER (Bagian Bawah Situs) --- */
 .main-footer {
-    background-color: var(--color-primary-dark); /* Footer dengan warna biru gelap utama */
-    color: var(--text-light); /* Teks footer dengan warna sangat ringan */
-    padding: var(--spacing-s) 0; /* Padding diperkecil (sebelumnya var(--spacing-l)) */
+    background-color: var(--color-primary-dark);
+    color: var(--text-light);
+    padding: var(--spacing-s) 0; /* Padding diperkecil */
     text-align: center;
     margin-top: auto;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* Shadow diperhalus (sebelumnya 0 -4px 15px) */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
 
 .footer-nav {
     list-style: none;
     padding: 0;
-    margin-top: var(--spacing-xs); /* Margin diperkecil (sebelumnya var(--spacing-l)) */
+    margin-top: var(--spacing-xs); /* Margin diperkecil */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .footer-nav li {
-    margin: 0 var(--spacing-xxs); /* Margin diperkecil (sebelumnya var(--spacing-s)) */
+    margin: 0 var(--spacing-xxs); /* Margin diperkecil */
 }
 
 .footer-nav a {
     color: var(--text-light);
     text-decoration: none;
-    font-size: 0.9em; /* Ukuran font diperkecil (sebelumnya 1em) */
+    font-size: 0.9em; /* Ukuran font diperkecil */
     transition: color var(--transition-duration-standard) var(--transition-timing-function);
 }
 
@@ -300,15 +300,15 @@ body {
 
 /* --- GLOBAL MODULE PAGE STYLES --- */
 .module-page .section-title {
-    color: var(--color-accent-teal-dark); /* Judul section modul dengan warna teal gelap */
+    color: var(--color-accent-teal-dark);
 }
 .module-page .section-title::after {
-    background-color: var(--color-accent-teal); /* Underline dengan warna teal */
+    background-color: var(--color-accent-teal);
 }
 
 .module-section {
-    background-color: var(--bg-light-gray); /* Latar belakang section modul abu-abu terang */
-    padding: var(--spacing-xl); /* Padding lebih besar */
+    background-color: var(--bg-light-gray);
+    padding: var(--spacing-xl);
     border-radius: var(--border-radius-smooth);
     box-shadow: var(--shadow-elevate-light);
     margin-bottom: var(--spacing-xl);
@@ -317,16 +317,16 @@ body {
 
 .module-section h3 {
     font-size: 2.2em;
-    color: var(--text-heading); /* Judul h3 dengan warna teks heading */
+    color: var(--text-heading);
     margin-bottom: var(--spacing-m);
     padding-bottom: var(--spacing-xs);
-    border-bottom: 2px solid var(--color-secondary-blue); /* Border bawah h3 dengan biru sekunder */
+    border-bottom: 2px solid var(--color-secondary-blue);
     font-weight: 600;
 }
 
 .module-section h4 {
     font-size: 1.6em;
-    color: var(--color-accent-teal); /* Judul h4 dengan warna teal */
+    color: var(--color-accent-teal);
     margin-top: var(--spacing-l);
     margin-bottom: var(--spacing-s);
     font-weight: 600;
@@ -348,13 +348,13 @@ body {
 }
 
 .module-section strong {
-    color: var(--color-primary-medium); /* Penekanan teks dengan biru gelap sedang */
+    color: var(--color-primary-medium);
 }
 
 
 /* --- KUIS GLOBAL STYLES --- */
 .quiz-container {
-    background-color: var(--bg-white); /* Latar belakang kuis putih bersih */
+    background-color: var(--bg-white);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-smooth);
     margin-top: var(--spacing-xl);
@@ -362,9 +362,9 @@ body {
     box-shadow: var(--shadow-elevate-light);
 }
 .quiz-question {
-    font-size: 1.6em; /* Ukuran pertanyaan kuis lebih besar */
+    font-size: 1.6em;
     margin-bottom: var(--spacing-l);
-    color: var(--color-primary-medium); /* Pertanyaan kuis dengan biru gelap sedang */
+    color: var(--color-primary-medium);
     font-weight: bold;
     text-align: center;
     padding: var(--spacing-s);
@@ -379,37 +379,37 @@ body {
 }
 .quiz-options button {
     flex: 1 1 calc(50% - var(--spacing-s));
-    max-width: 320px; /* Lebar maksimum tombol lebih besar */
-    padding: var(--spacing-m) var(--spacing-l); /* Padding tombol lebih besar */
-    background-color: var(--color-secondary-blue); /* Tombol opsi dengan biru sekunder */
+    max-width: 320px;
+    padding: var(--spacing-m) var(--spacing-l);
+    background-color: var(--color-secondary-blue);
     color: #fff;
     border: none;
     border-radius: var(--border-radius-smooth);
     cursor: pointer;
-    font-size: 1.25em; /* Ukuran font tombol lebih besar */
+    font-size: 1.25em;
     font-weight: bold;
     transition: all var(--transition-duration-standard) var(--transition-timing-function);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 .quiz-options button:hover:not([disabled]) {
-    background-color: var(--color-secondary-blue-dark); /* Biru sekunder lebih gelap saat hover */
+    background-color: var(--color-secondary-blue-dark);
     transform: translateY(-5px) scale(1.03);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 .quiz-options button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    background-color: var(--border-crisp); /* Warna border yang bersih saat disabled */
+    background-color: var(--border-crisp);
     transform: none;
     box-shadow: none;
 }
 .quiz-feedback {
-    margin-top: var(--spacing-xl); /* Jarak atas lebih besar */
-    padding: var(--spacing-l); /* Padding feedback lebih besar */
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-l);
     border-radius: var(--border-radius-smooth);
     text-align: center;
     font-weight: bold;
-    font-size: 1.5em; /* Ukuran font feedback lebih besar */
+    font-size: 1.5em;
     opacity: 0;
     transform: translateY(var(--spacing-l));
     transition: opacity 0.7s var(--transition-timing-function), transform 0.7s var(--transition-timing-function);
@@ -509,7 +509,7 @@ body {
     border-radius: var(--border-radius-smooth);
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
     text-align: center;
-    font-size: 2.6em; /* Ukuran angka/huruf utama tetap besar */
+    font-size: 2.6em;
     font-weight: bold;
     color: var(--text-heading);
     transition: all var(--transition-duration-standard) var(--transition-timing-function);
@@ -522,14 +522,12 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .item small {
-    /* PENTING: Penyesuaian font-size untuk teks pengucapan */
     font-size: 0.7em;
     line-height: 1.2;
     color: var(--text-body-medium);
     margin-top: var(--spacing-xs);
 }
 .alphabet-grid, .number-grid {
-    /* PENTING: Penyesuaian minmax di grid agar ada lebih banyak ruang horizontal */
     grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
     gap: var(--spacing-m);
 }
