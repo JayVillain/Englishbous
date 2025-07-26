@@ -146,8 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // --- DATA KUIS BARU UNTUK MODUL 6: Prepositions of Place & Time ---
-    // ID elemen: 'preposition-quiz-question', 'preposition-quiz-options', 'preposition-quiz-feedback', 'next-preposition-btn'
+    // --- Data Kuis untuk Modul 6: Prepositions of Place & Time ---
     const prepositionQuizData = [
         {
             question: "The book is ___ the table.",
@@ -183,6 +182,80 @@ document.addEventListener('DOMContentLoaded', () => {
             question: "The meeting is ___ Monday morning.",
             options: ["at", "in", "on", "for"],
             correctAnswer: "on"
+        }
+    ];
+
+    // --- Data Kuis untuk Modul 7: Articles & Quantifiers ---
+    const articleQuantifierQuizData = [
+        {
+            question: "She has ___ interesting idea.",
+            options: ["a", "an", "the", "some"],
+            correctAnswer: "an"
+        },
+        {
+            question: "I need ___ water. (Saya butuh sedikit air.)",
+            options: ["many", "much", "some", "any"],
+            correctAnswer: "some"
+        },
+        {
+            question: "Do you have ___ money?",
+            options: ["much", "many", "some", "any"],
+            correctAnswer: "any"
+        },
+        {
+            question: "Pass me ___ book on the table.",
+            options: ["a", "an", "the", "no article"],
+            correctAnswer: "the"
+        },
+        {
+            question: "There are ___ students in the class.",
+            options: ["much", "many", "some", "any"],
+            correctAnswer: "many"
+        },
+        {
+            question: "I like ___ music. (in general)",
+            options: ["a", "an", "the", "no article"],
+            correctAnswer: "no article"
+        },
+        {
+            question: "They have ___ lot of friends.",
+            options: ["a", "an", "the", "no article"],
+            correctAnswer: "a"
+        }
+    ];
+
+    // --- DATA KUIS BARU UNTUK MODUL 8: Adverbs & Modals ---
+    // ID elemen: 'adverb-modal-quiz-question', 'adverb-modal-quiz-options', 'adverb-modal-quiz-feedback', 'next-adverb-modal-btn'
+    const adverbModalQuizData = [
+        {
+            question: "She ___ (always / go) to work by bus.",
+            options: ["always go", "always goes", "is always going", "go always"],
+            correctAnswer: "always goes"
+        },
+        {
+            question: "I ___ (can / swim) when I was 5 years old.",
+            options: ["can swim", "could swim", "will swim", "am swimming"],
+            correctAnswer: "could swim"
+        },
+        {
+            question: "It ___ (will / rain) tomorrow, according to the forecast.",
+            options: ["will rain", "rains", "is raining", "could rain"],
+            correctAnswer: "will rain"
+        },
+        {
+            question: "They ___ (never / eat) fast food.",
+            options: ["never eat", "eat never", "never eats", "are never eating"],
+            correctAnswer: "never eat"
+        },
+        {
+            question: "___ you please help me with this box?",
+            options: ["Can", "Will", "Could", "Are"],
+            correctAnswer: "Could"
+        },
+        {
+            question: "We ___ (usually / study) in the library.",
+            options: ["study usually", "are usually studying", "usually study", "usually studies"],
+            correctAnswer: "usually study"
         }
     ];
 
@@ -231,7 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     optionsContainer.appendChild(button);
                 });
             } else {
-                // Kuis Selesai: Tampilkan pesan dan tombol 'Lanjut ke Modul Berikutnya'
                 questionElement.textContent = `Kuis selesai! Selamat! Anda berhasil menyelesaikan semua pertanyaan.`;
                 optionsContainer.innerHTML = '';
                 feedbackElement.textContent = `Skor Anda: ${userScore} dari ${quizQuestionsData.length} pertanyaan.`;
@@ -322,8 +394,20 @@ document.addEventListener('DOMContentLoaded', () => {
         initQuiz('tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn', tenseQuizData, '../06-prepositions-place-time/index.html');
     }
 
-    // BARU: Inisialisasi Kuis Modul 6: Prepositions of Place & Time
+    // Kuis Modul 6: Prepositions of Place & Time
     if (document.getElementById('preposition-quiz-question')) {
         initQuiz('preposition-quiz-question', 'preposition-quiz-options', 'preposition-quiz-feedback', 'next-preposition-btn', prepositionQuizData, '../07-articles-quantifiers/index.html');
+    }
+
+    // Kuis Modul 7: Articles & Quantifiers
+    if (document.getElementById('article-quantifier-quiz-question')) {
+        initQuiz('article-quantifier-quiz-question', 'article-quantifier-quiz-options', 'article-quantifier-quiz-feedback', 'next-article-quantifier-btn', articleQuantifierQuizData, '../08-adverbs-modals/index.html');
+    }
+
+    // BARU: Inisialisasi Kuis Modul 8: Adverbs & Modals
+    // Ini adalah modul terakhir di Level 2, jadi untuk nextModuleUrl, kita bisa arahkan ke halaman utama Level 3 atau ke homepage.
+    // Untuk saat ini, kita arahkan ke halaman utama Level 3 yang belum ada, bisa diganti nanti ke index.html utama.
+    if (document.getElementById('adverb-modal-quiz-question')) {
+        initQuiz('adverb-modal-quiz-question', 'adverb-modal-quiz-options', 'adverb-modal-quiz-feedback', 'next-adverb-modal-btn', adverbModalQuizData, '../../level3/09-simple-past-present-perfect/index.html');
     }
 });
