@@ -9,17 +9,13 @@
  * - Menggunakan satu fungsi `initQuiz` yang generik untuk menangani kuis pilihan ganda.
  * - Data pertanyaan kuis disimpan terpisah untuk setiap modul.
  * - `initQuiz` dipanggil secara kondisional hanya jika elemen kuis yang relevan ada di halaman.
+ * - Menambahkan navigasi otomatis ke modul berikutnya setelah kuis selesai.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('quiz.js: Logika kuis berhasil dimuat.');
 
     // --- Data Kuis untuk Modul 1: Alphabet & Numbers ---
-    // Pastikan ID elemen di HTML modul ini cocok:
-    // - questionElement: 'number-quiz-question'
-    // - optionsContainer: 'number-quiz-options'
-    // - feedbackElement: 'number-quiz-feedback'
-    // - nextButton: 'next-question-btn'
     const numberQuizData = [
         { 
             question: "Manakah angka 'dua'?", 
@@ -116,8 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // --- DATA KUIS BARU UNTUK MODUL 5: Simple Present & Present Continuous ---
-    // ID elemen: 'tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn'
+    // --- Data Kuis untuk Modul 5: Simple Present & Present Continuous ---
     const tenseQuizData = [
         {
             question: "I often ___ (go) to the library.",
@@ -161,145 +156,141 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {string} feedbackId  - ID dari elemen HTML (misalnya <div>) yang akan menampilkan feedback (benar/salah).
      * @param {string} nextBtnId   - ID dari elemen HTML (misalnya <button>) untuk tombol "Pertanyaan Selanjutnya".
      * @param {Array<Object>} quizQuestionsData - Array berisi objek-objek pertanyaan kuis untuk modul ini.
-     * Setiap objek harus memiliki properti 'question', 'options', dan 'correctAnswer'.
+     * @param {string|null} nextModuleUrl - URL relatif ke modul berikutnya setelah kuis ini selesai. Jika null, tidak ada navigasi.
      */
-    function initQuiz(questionId, optionsId, feedbackId, nextBtnId, quizQuestionsData) {
-        // Dapatkan referensi ke elemen-elemen HTML berdasarkan ID yang diberikan
+    function initQuiz(questionId, optionsId, feedbackId, nextBtnId, quizQuestionsData, nextModuleUrl = null) {
         const questionElement = document.getElementById(questionId);
         const optionsContainer = document.getElementById(optionsId);
         const feedbackElement = document.getElementById(feedbackId);
         const nextButton = document.getElementById(nextBtnId);
 
-        // Lakukan pengecekan awal: Pastikan semua elemen HTML yang diperlukan ada di halaman.
-        // Jika ada yang tidak ditemukan, log peringatan dan hentikan eksekusi fungsi ini
-        // untuk mencegah error. Ini penting karena quiz.js dimuat di beberapa halaman.
         if (!questionElement || !optionsContainer || !feedbackElement || !nextButton) {
             console.warn(`initQuiz: Elemen kuis dengan ID '${questionId}' atau lainnya tidak ditemukan. Kuis tidak diinisialisasi.`);
-            return; // Keluar dari fungsi jika elemen tidak lengkap
+            return;
         }
 
-        let currentQuestionIndex = 0; // Melacak indeks pertanyaan yang sedang ditampilkan
-        let userScore = 0;            // Melacak skor pengguna untuk kuis ini
+        let currentQuestionIndex = 0;
+        let userScore = 0;
 
-        /**
-         * @function loadQuestion
-         * Memuat data pertanyaan saat ini ke elemen HTML dan mengatur ulang tampilan kuis.
-         */
         function loadQuestion() {
-            // Cek apakah masih ada pertanyaan yang belum dijawab
             if (currentQuestionIndex < quizQuestionsData.length) {
-                const q = quizQuestionsData[currentQuestionIndex]; // Dapatkan objek pertanyaan saat ini
+                const q = quizQuestionsData[currentQuestionIndex];
 
-                questionElement.textContent = q.question; // Perbarui teks pertanyaan
-                optionsContainer.innerHTML = ''; // Hapus semua tombol opsi dari pertanyaan sebelumnya
+                questionElement.textContent = q.question;
+                optionsContainer.innerHTML = '';
                 
-                feedbackElement.textContent = ''; // Kosongkan teks feedback
-                // Reset kelas CSS feedback untuk menyembunyikan atau menghilangkan styling sebelumnya
-                feedbackElement.className = 'quiz-feedback'; 
-                nextButton.style.display = 'none'; // Sembunyikan tombol "Pertanyaan Selanjutnya"
+                feedbackElement.textContent = '';
+                feedbackElement.className = 'quiz-feedback';
+                nextButton.style.display = 'none'; // Sembunyikan tombol 'Next' secara default
 
-                // Buat tombol untuk setiap opsi jawaban dari data kuis
                 q.options.forEach(option => {
                     const button = document.createElement('button');
-                    button.textContent = option; // Teks tombol adalah opsi jawaban
-                    button.dataset.answer = option; // Simpan jawaban di atribut data-answer tombol
-                    button.addEventListener('click', checkAnswer); // Tambahkan event listener untuk memanggil checkAnswer saat tombol diklik
-                    optionsContainer.appendChild(button); // Masukkan tombol ke dalam container opsi
+                    button.textContent = option;
+                    button.dataset.answer = option;
+                    button.addEventListener('click', checkAnswer);
+                    optionsContainer.appendChild(button);
                 });
             } else {
-                // Jika semua pertanyaan sudah dijawab
-                questionElement.textContent = "Kuis selesai! Selamat! Anda berhasil menyelesaikan semua pertanyaan.";
-                optionsContainer.innerHTML = ''; // Hapus semua tombol opsi
+                // Kuis Selesai: Tampilkan pesan dan tombol 'Lanjut ke Modul Berikutnya'
+                questionElement.textContent = `Kuis selesai! Selamat! Anda berhasil menyelesaikan semua pertanyaan.`;
+                optionsContainer.innerHTML = '';
                 feedbackElement.textContent = `Skor Anda: ${userScore} dari ${quizQuestionsData.length} pertanyaan.`;
-                feedbackElement.classList.add('show'); // Pastikan feedback terlihat
-                nextButton.style.display = 'none'; // Pastikan tombol selanjutnya tersembunyi
+                feedbackElement.classList.add('show', 'correct'); // Beri warna hijau untuk skor akhir
+                
+                nextButton.style.display = 'block'; // Tampilkan tombol
+                nextButton.textContent = 'Lanjut ke Modul Berikutnya'; // Ubah teks tombol
+                nextButton.classList.add('btn-primary'); // Jadikan tombol utama
+                nextButton.classList.remove('btn-secondary'); // Hapus kelas sekunder jika ada
+                
+                // Tambahkan event listener untuk navigasi ke modul berikutnya
+                nextButton.onclick = () => { // Gunakan onclick untuk mengganti event listener sebelumnya
+                    if (nextModuleUrl) {
+                        window.location.href = nextModuleUrl;
+                    } else {
+                        // Jika nextModuleUrl tidak dispesifikasikan, mungkin kembali ke home atau tampilkan pesan lain
+                        alert('Selamat! Anda telah menyelesaikan modul ini.');
+                        // Atau bisa redirect ke index.html utama:
+                        // window.location.href = '../../../index.html';
+                    }
+                };
             }
         }
 
-        /**
-         * @function checkAnswer
-         * Memeriksa jawaban yang dipilih pengguna dan memberikan feedback visual.
-         * @param {Event} event - Objek event yang dipicu oleh klik tombol.
-         */
         function checkAnswer(event) {
-            const selectedButton = event.target; // Tombol yang baru saja diklik
-            const selectedAnswer = selectedButton.dataset.answer; // Jawaban yang dipilih pengguna
-            const correctAnswer = quizQuestionsData[currentQuestionIndex].correctAnswer; // Jawaban yang benar
-
-            // Nonaktifkan semua tombol opsi untuk mencegah perubahan jawaban setelah dipilih
+            const selectedButton = event.target;
+            const selectedAnswer = selectedButton.dataset.answer;
+            const correctAnswer = quizQuestionsData[currentQuestionIndex].correctAnswer;
+            
             Array.from(optionsContainer.children).forEach(button => {
-                button.disabled = true; // Nonaktifkan tombol
-                // Berikan highlight visual pada tombol berdasarkan benar/salah
+                button.disabled = true;
                 if (button.dataset.answer === correctAnswer) {
-                    button.style.backgroundColor = '#4CAF50'; // Hijau untuk jawaban yang benar
+                    button.style.backgroundColor = '#4CAF50';
                     button.style.color = 'white';
                 } else if (button.dataset.answer === selectedAnswer) {
-                    button.style.backgroundColor = '#f44336'; // Merah untuk jawaban yang dipilih jika salah
+                    button.style.backgroundColor = '#f44336';
                     button.style.color = 'white';
                 }
             });
 
-            // Berikan feedback teks dan styling (benar/salah)
             if (selectedAnswer === correctAnswer) {
                 feedbackElement.textContent = "Benar! Bagus sekali.";
-                feedbackElement.classList.remove('incorrect'); // Hapus kelas 'incorrect' jika ada
-                feedbackElement.classList.add('correct', 'show'); // Tambahkan kelas 'correct' dan 'show'
-                userScore++; // Tingkatkan skor
+                feedbackElement.classList.remove('incorrect');
+                feedbackElement.classList.add('correct', 'show');
+                userScore++;
             } else {
                 feedbackElement.textContent = `Salah. Jawaban yang benar adalah "${correctAnswer}".`;
-                feedbackElement.classList.remove('correct'); // Hapus kelas 'correct' jika ada
-                feedbackElement.classList.add('incorrect', 'show'); // Tambahkan kelas 'incorrect' dan 'show'
+                feedbackElement.classList.remove('correct');
+                feedbackElement.classList.add('incorrect', 'show');
             }
             
-            // Tampilkan tombol "Pertanyaan Selanjutnya" setelah jawaban diberikan
-            nextButton.style.display = 'block'; 
-            // Atur warna tombol next agar konsisten dengan desain
-            nextButton.style.backgroundColor = '#007bff'; 
-            nextButton.style.color = 'white';
+            // Atur tombol 'Next' kembali ke fungsi goToNextQuestion untuk pertanyaan berikutnya
+            // atau biarkan onclick yang sudah diatur untuk akhir kuis
+            if (currentQuestionIndex < quizQuestionsData.length) { // Jika belum selesai kuis
+                 nextButton.style.display = 'block'; 
+                 nextButton.textContent = 'Pertanyaan Selanjutnya';
+                 nextButton.classList.remove('btn-primary');
+                 nextButton.classList.add('btn-secondary');
+                 nextButton.onclick = goToNextQuestion; // Kembali ke fungsi normal
+            } else {
+                 // Sudah di akhir kuis, tombol nextButton akan diatur di loadQuestion
+            }
         }
 
-        /**
-         * @function goToNextQuestion
-         * Pindah ke pertanyaan kuis berikutnya.
-         */
         function goToNextQuestion() {
-            currentQuestionIndex++; // Tingkatkan indeks pertanyaan
-            loadQuestion(); // Muat pertanyaan baru
+            currentQuestionIndex++;
+            loadQuestion();
         }
 
-        // Tambahkan event listener ke tombol "Pertanyaan Selanjutnya"
+        // Event listener awal untuk tombol 'Pertanyaan Selanjutnya'
+        // Ini akan ditimpa di loadQuestion jika kuis selesai
         nextButton.addEventListener('click', goToNextQuestion);
         
-        // Panggil loadQuestion untuk memuat pertanyaan pertama saat kuis diinisialisasi
         loadQuestion();
     }
 
     // --- Pemanggilan Fungsi initQuiz untuk Setiap Kuis di Halaman ---
-    // Di sini kita memanggil fungsi initQuiz untuk setiap kuis yang mungkin ada
-    // di halaman yang sedang dimuat. Pemanggilan ini bersifat kondisional,
-    // artinya kuis hanya akan diinisialisasi jika elemen HTML untuknya ditemukan.
 
-    // Inisialisasi Kuis Modul 1: Alphabet & Numbers
-    // ID elemen: 'number-quiz-question', 'number-quiz-options', 'number-quiz-feedback', 'next-question-btn'
+    // Kuis Modul 1: Alphabet & Numbers
+    // URL modul berikutnya: '../02-greetings-introductions/index.html'
     if (document.getElementById('number-quiz-question')) {
-        initQuiz('number-quiz-question', 'number-quiz-options', 'number-quiz-feedback', 'next-question-btn', numberQuizData);
+        initQuiz('number-quiz-question', 'number-quiz-options', 'number-quiz-feedback', 'next-question-btn', numberQuizData, '../02-greetings-introductions/index.html');
     }
 
-    // Inisialisasi Kuis Modul 2: Greetings & Introductions
-    // ID elemen: 'greetings-quiz-question', 'greetings-quiz-options', 'greetings-quiz-feedback', 'next-greetings-btn'
+    // Kuis Modul 2: Greetings & Introductions
+    // URL modul berikutnya: '../03-pronouns-to-be/index.html'
     if (document.getElementById('greetings-quiz-question')) {
-        initQuiz('greetings-quiz-question', 'greetings-quiz-options', 'greetings-quiz-feedback', 'next-greetings-btn', greetingsQuizData);
+        initQuiz('greetings-quiz-question', 'greetings-quiz-options', 'greetings-quiz-feedback', 'next-greetings-btn', greetingsQuizData, '../03-pronouns-to-be/index.html');
     }
 
-    // Inisialisasi Kuis Modul 3: Pronouns & 'To Be'
-    // ID elemen: 'tobe-quiz-question', 'tobe-quiz-options', 'tobe-quiz-feedback', 'next-tobe-btn'
+    // Kuis Modul 3: Pronouns & 'To Be'
+    // URL modul berikutnya: '../04-essential-vocabulary/index.html'
     if (document.getElementById('tobe-quiz-question')) {
-        initQuiz('tobe-quiz-question', 'tobe-quiz-options', 'tobe-quiz-feedback', 'next-tobe-btn', tobeQuizData);
+        initQuiz('tobe-quiz-question', 'tobe-quiz-options', 'tobe-quiz-feedback', 'next-tobe-btn', tobeQuizData, '../04-essential-vocabulary/index.html');
     }
 
-    // BARU: Inisialisasi Kuis Modul 5: Simple Present & Present Continuous
-    // ID elemen: 'tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn'
+    // Kuis Modul 5: Simple Present & Present Continuous
+    // URL modul berikutnya: '../06-prepositions-place-time/index.html'
     if (document.getElementById('tense-quiz-question')) {
-        initQuiz('tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn', tenseQuizData);
+        initQuiz('tense-quiz-question', 'tense-quiz-options', 'tense-quiz-feedback', 'next-tense-btn', tenseQuizData, '../06-prepositions-place-time/index.html');
     }
 });
